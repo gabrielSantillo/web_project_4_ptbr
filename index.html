@@ -20,7 +20,8 @@
                 <div class="profile__info">
                     <div class="profile__info-content">
                         <h1 class="profile__info-content-name">Jacques Cousteau</h1>
-                        <button class="profile__info-content-edit">
+                        <button class="profile__info-content-edit"
+                        id="edit-profile">
                             <img src="./images/profile/profile-edit-pencil.png" alt="">
                         </button>
                     </div>
@@ -41,16 +42,17 @@
                 </div>
             </section>
 
-            <section class="popup">
+            <section class="popup" id="popup">
                 <div class="popup__container">
                     <form class="popup__container-form">
                         <div class="popup__container-form-heading">
                             <h2 class="popup__container-form-heading-title">Editar Perfil</h2>
-                            <img src="./images/popup/popup-close.png" alt="" class="popup__container-form-heading-close">
+                            <img src="./images/popup/popup-close.png" alt="" class="popup__container-form-heading-close"
+                            id="close-button">
                         </div>
 
                         <fieldset class="popup__container-form-texts">
-                            <input type="text" class="popup__container-form-texts-input" id="name" name="name" placeholder="Nome" required>
+                            <input type="text" class="popup__container-form-texts-input" id="name" name="full-name" placeholder="Nome" required>
                             <input type="text" class="popup__container-form-texts-input" id="about" name="about" placeholder="Sobre mim" required>
                         </fieldset>
 
@@ -69,7 +71,7 @@
             </p>
         </footer>
 
-        <script src="scripts/index.js"></script>
+        <script src="/scripts/index.js"></script>
         
     </div>
 </body>
