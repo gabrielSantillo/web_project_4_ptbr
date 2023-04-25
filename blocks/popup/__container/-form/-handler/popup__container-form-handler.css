@@ -1,0 +1,7 @@
+.popup__container-form-handler {
+    border: 0;
+    margin-top: 46px;
+    padding: 0;
+    display: grid;
+    height: 46px;
+}

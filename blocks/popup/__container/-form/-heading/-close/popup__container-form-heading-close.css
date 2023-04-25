@@ -1,0 +1,4 @@
+.popup__container-form-heading-close {
+    transform: translate(20px, -70px);
+    background-color: black;
+}
