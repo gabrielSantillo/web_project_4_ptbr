@@ -1,0 +1,8 @@
+.profile {
+    margin-top: 38.25px;
+    margin-left: 19px;
+    margin-right: 19px;
+    display: grid;
+    place-items: center;
+    text-align: center;
+}
