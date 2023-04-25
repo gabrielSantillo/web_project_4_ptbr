@@ -21,3 +21,11 @@
 @import url('../blocks/profile/__info/-description/profile__info-description.css');
 @import url('../blocks/profile/__info/-content/-edit/profile__info-content-edit.css');
 @import url('../blocks/profile/__info/-content/-name/profile__info-content-name.css');
+
+/* POST */
+@import url('../blocks/post/post.css');
+@import url('../blocks/post/__card/post__card.css');
+@import url('../blocks/post/__card/-image/post__card-image.css');
+@import url('../blocks/post/__card/-content/post__card-content.css');
+@import url('../blocks/post/__card/-content/-title/post__card-content-title.css');
+@import url('../blocks/post/__card/-content/-like/post__card-content-like.css');

@@ -1,0 +1,7 @@
+.post {
+    display: grid;
+    place-items: center;
+    margin-top: 36px;
+    margin-left: 19px;
+    margin-right: 19px;
+}
