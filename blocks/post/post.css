@@ -6,3 +6,13 @@
     margin-left: 19px;
     margin-right: 19px;
 }
+
+@media screen and (min-width: 1280px) { 
+    .post {
+        grid-template-columns: repeat(3, 282px);
+        column-gap: 17px;
+        row-gap: 21px;
+        margin-top: 46px;
+        justify-content: center;
+    }
+}
