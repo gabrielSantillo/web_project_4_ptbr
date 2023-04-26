@@ -13,6 +13,7 @@
 @import url('../blocks/header/__line/header__line.css');
 @import url('../blocks/header/__line/-long/header__line-long.css');
 @import url('../blocks/header/__logo/header__logo.css');
+@import url('../blocks/header/__logo/-bigger/header__logo-bigger.css');
 
 /* PROFILE */
 @import url('../blocks/profile/profile.css');

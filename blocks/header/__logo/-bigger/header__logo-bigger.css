@@ -1,0 +1,12 @@
+.header__logo-bigger {
+     display: none;   
+}
+
+@media screen and (min-width: 1280px) {
+    .header__logo-bigger {
+        display: flex;
+        margin-top: 45px;
+        margin-left: 200px;
+        margin-bottom: 41px;
+    }
+}
