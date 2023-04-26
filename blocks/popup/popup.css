@@ -8,10 +8,10 @@
     border-radius: 10px;
 
     position: fixed;
-    top: 20%;
-    left: 0;
-    right: 0;
-    bottom: 20%;
+    top: 50%;
+    left: 50%;
+    margin-top: -161px;  /* Negative half of height. */
+    margin-left: -141px;  /* Negative half of width. */
     z-index: 99;
 
     display: none;

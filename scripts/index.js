@@ -10,5 +10,7 @@ function handleClosePopup() {
     popupSection.classList.remove('popup-opened');
 }
 
+
+
 openPopup.addEventListener('click', handleOpenPopup);
 closePopup.addEventListener('click', handleClosePopup);
