@@ -19,6 +19,10 @@ function handleSaveButton(evt) {
     let name = document.getElementById('name');
     let about = document.getElementById('about');
 
+    if(name.value === "" || about.value === "") {
+        return alert("Please, complete the entire form before saving.")
+    }
+
     profileName.textContent = name.value;
     profileAbout.textContent = about.value;
     
