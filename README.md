@@ -7,7 +7,7 @@
 
 **Link para o site**
 
-* [Link para o projeto]https://gabrielsantillo.github.io/web_project_4_ptbr/
+* [Link para o projeto](https://gabrielsantillo.github.io/web_project_4_ptbr/)
 
 **Figma**
 
