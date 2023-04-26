@@ -8,6 +8,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
+}
+
+.profile__add:hover {
+    transition: .4s;
+    opacity: 60%;
 }
 
 @media screen and (min-width: 1280px) { 
