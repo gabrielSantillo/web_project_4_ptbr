@@ -1,10 +1,14 @@
 const closePopup = document.getElementById('close-button');
 const openPopup = document.querySelector('#edit-profile');
-
+const popupSection = document.querySelector('#popup');
 
 function handleOpenPopup() {
-    let popupSection = document.querySelector('#popup');
-    popupSection.classList.add('popup-opened')
+    popupSection.classList.add('popup-opened');
 }
 
-openPopup.addEventListener('click', handleOpenPopup)
+function handleClosePopup() {
+    popupSection.classList.remove('popup-opened');
+}
+
+openPopup.addEventListener('click', handleOpenPopup);
+closePopup.addEventListener('click', handleClosePopup);

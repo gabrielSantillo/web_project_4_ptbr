@@ -1,14 +1,17 @@
 .popup {
     margin-left: 19px;
     margin-right: 19px;
+    width: 282px;
+    height: 322px;
     background-color: #fff;
     color: #000;
     border-radius: 10px;
 
     position: fixed;
+    top: 20%;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 20%;
     z-index: 99;
 
     display: none;
