@@ -13,12 +13,15 @@ function handleClosePopup() {
     popupSection.classList.remove('popup-opened');
 }
 
-function handleSaveButton() {
-    let name = document.getElementById('name');
-    let about = document.getElementById('about')
-
+function handleSaveButton(evt) {
+    evt.preventDefault();
     
+    let name = document.getElementById('name');
+    let about = document.getElementById('about');
 
+    profileName.textContent = name.value;
+    profileAbout.textContent = about.value;
+    
     handleClosePopup();
 }
 
