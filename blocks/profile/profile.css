@@ -6,3 +6,19 @@
     place-items: center;
     text-align: center;
 }
+
+
+@media screen and (min-width: 1280px) {
+    .profile {
+        display: grid;
+        grid-auto-flow: column;
+        place-items: start;
+        margin-left: 200px;
+    }
+
+    .profile div {
+        display: flex;
+        justify-content: flex-start;
+        column-gap: 60px;
+    }
+}

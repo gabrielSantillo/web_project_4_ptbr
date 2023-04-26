@@ -4,3 +4,9 @@
     font-size: 22px;
     line-height: 26.63px;
 }
+
+@media screen and (min-width: 1280px) { 
+    .profile__info-content-name {
+        font-size: 42px;
+    }
+}

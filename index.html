@@ -1,131 +1,264 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>PRACTICUM</title>
-    <link rel="stylesheet" href="./pages/index.css">
-</head>
-<body class="body">
+    <link rel="stylesheet" href="./pages/index.css" />
+  </head>
+  <body class="body">
     <div class="page">
-        <header class="header">
-            <img class="header__logo" src="./images/header/header-logo.png" alt="Imagem do logo">
-            <img class="header__logo-bigger" src="./images/header/header-logo-bigger.png" alt="Imagem do logo">
+      <header class="header">
+        <img
+          class="header__logo"
+          src="./images/header/header-logo.png"
+          alt="Imagem do logo"
+        />
+        <img
+          class="header__logo-bigger"
+          src="./images/header/header-logo-bigger.png"
+          alt="Imagem do logo"
+        />
 
-            <img src="./images/header/header-line.png" alt="Imagem de uma linha fina" class="header__line">
-            <img src="./images/header/header-line-long.png" alt="Imagem de uma linha fina" class="header__line-long">
-        </header>
+        <img
+          src="./images/header/header-line.png"
+          alt="Imagem de uma linha fina"
+          class="header__line"
+        />
+        <img
+          src="./images/header/header-line-long.png"
+          alt="Imagem de uma linha fina"
+          class="header__line-long"
+        />
+      </header>
 
-        <main class="page">
-            <section class="profile">
-                <img src="/images/profile/profile-image.png" alt="Imagem da foto do perfil" class="profile__image">
-                <div class="profile__info">
-                    <div class="profile__info-content">
-                        <h1 class="profile__info-content-name" id="profile-name">Jacques Cousteau</h1>
-                        <button class="profile__info-content-edit"
-                        id="edit-profile">
-                            <img src="./images/profile/profile-edit-pencil.png" alt="">
-                        </button>
-                    </div>
-                    <p class="profile__info-description" id="profile-about">Explorar</p>
-                </div>
-                <button class="profile__add"><img src="./images/profile/profile-add.png" alt=""></button>
-            </section>
+      <main class="page">
+        <section class="profile">
+          <div>
+            <img
+              src="/images/profile/profile-image.png"
+              alt="Imagem da foto do perfil"
+              class="profile__image"
+            />
+            <div class="profile__info">
+              <div class="profile__info-content">
+                <h1 class="profile__info-content-name" id="profile-name">
+                  Jacques Cousteau
+                </h1>
+                <button class="profile__info-content-edit" id="edit-profile">
+                  <img src="./images/profile/profile-edit-pencil.png" alt="" />
+                </button>
+              </div>
+              <p class="profile__info-description" id="profile-about">
+                Explorar
+              </p>
+            </div>
+          </div>
 
-            <section class="post">
-                <div class="post__card">
-                    <img src="./images/post/kirill-pershin-1088404-unsplash.png" alt="" class="post__card-image">
-                    <div class="post__card-content">
-                        <h2 class="post__card-content-title">Yosemite National Park</h2>
-                        <svg class="post__card-content-like" width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z" fill="black"/>
-                            </svg>
-                    </div>
-                </div>
+          <button class="profile__add">
+            <img src="./images/profile/profile-add.png" alt="" />
+          </button>
+        </section>
 
-                <div class="post__card">
-                    <img src="./images/post/kirill-pershin-1404681-unsplash.png" alt="" class="post__card-image">
-                    <div class="post__card-content">
-                        <h2 class="post__card-content-title">Lake Louise</h2>
-                        <svg class="post__card-content-like" width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z" fill="black"/>
-                            </svg>
-                    </div>
-                </div>
+        <section class="post">
+          <div class="post__card">
+            <img
+              src="./images/post/kirill-pershin-1088404-unsplash.png"
+              alt=""
+              class="post__card-image"
+            />
+            <div class="post__card-content">
+              <h2 class="post__card-content-title">Yosemite National Park</h2>
+              <svg
+                class="post__card-content-like"
+                width="21"
+                height="19"
+                viewBox="0 0 21 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
+          </div>
 
-                <div class="post__card">
-                    <img src="./images/post/kirill-pershin-1556355-unsplash.png" alt="" class="post__card-image">
-                    <div class="post__card-content">
-                        <h2 class="post__card-content-title">Carecas Mountain</h2>
-                        <svg class="post__card-content-like" width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z" fill="black"/>
-                            </svg>
-                    </div>
-                </div>
+          <div class="post__card">
+            <img
+              src="./images/post/kirill-pershin-1404681-unsplash.png"
+              alt=""
+              class="post__card-image"
+            />
+            <div class="post__card-content">
+              <h2 class="post__card-content-title">Lake Louise</h2>
+              <svg
+                class="post__card-content-like"
+                width="21"
+                height="19"
+                viewBox="0 0 21 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
+          </div>
 
-                <div class="post__card">
-                    <img src="./images/post/kirill-pershin-1404681-unsplash (1).png" alt="" class="post__card-image">
-                    <div class="post__card-content">
-                        <h2 class="post__card-content-title">Latemar</h2>
-                        <svg class="post__card-content-like" width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z" fill="black"/>
-                            </svg>
-                    </div>
-                </div>
+          <div class="post__card">
+            <img
+              src="./images/post/kirill-pershin-1556355-unsplash.png"
+              alt=""
+              class="post__card-image"
+            />
+            <div class="post__card-content">
+              <h2 class="post__card-content-title">Carecas Mountain</h2>
+              <svg
+                class="post__card-content-like"
+                width="21"
+                height="19"
+                viewBox="0 0 21 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
+          </div>
 
-                <div class="post__card">
-                    <img src="./images/post/kirill-pershin-1556355-unsplash (2).png" alt="" class="post__card-image">
-                    <div class="post__card-content">
-                        <h2 class="post__card-content-title">Vanoise National Park</h2>
-                        <svg class="post__card-content-like" width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z" fill="black"/>
-                            </svg>
-                    </div>
-                </div>
+          <div class="post__card">
+            <img
+              src="./images/post/kirill-pershin-1404681-unsplash (1).png"
+              alt=""
+              class="post__card-image"
+            />
+            <div class="post__card-content">
+              <h2 class="post__card-content-title">Latemar</h2>
+              <svg
+                class="post__card-content-like"
+                width="21"
+                height="19"
+                viewBox="0 0 21 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
+          </div>
 
-                <div class="post__card">
-                    <img src="./images/post/kirill-pershin-1556355-unsplash (2).png" alt="" class="post__card-image">
-                    <div class="post__card-content">
-                        <h2 class="post__card-content-title">Lago di Braies</h2>
-                        <svg class="post__card-content-like" width="21" height="19" viewBox="0 0 21 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z" fill="black"/>
-                            </svg>
-                    </div>
-                </div>
-            </section>
+          <div class="post__card">
+            <img
+              src="./images/post/kirill-pershin-1556355-unsplash (2).png"
+              alt=""
+              class="post__card-image"
+            />
+            <div class="post__card-content">
+              <h2 class="post__card-content-title">Vanoise National Park</h2>
+              <svg
+                class="post__card-content-like"
+                width="21"
+                height="19"
+                viewBox="0 0 21 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
+          </div>
 
-            <section class="popup" id="popup">
-                <div class="popup__container">
-                    <form class="popup__container-form">
-                        <div class="popup__container-form-heading">
-                            <h2 class="popup__container-form-heading-title">Editar Perfil</h2>
-                            <img src="./images/popup/popup-close.png" alt="" class="popup__container-form-heading-close"
-                            id="close-button">
-                        </div>
+          <div class="post__card">
+            <img
+              src="./images/post/kirill-pershin-1556355-unsplash (2).png"
+              alt=""
+              class="post__card-image"
+            />
+            <div class="post__card-content">
+              <h2 class="post__card-content-title">Lago di Braies</h2>
+              <svg
+                class="post__card-content-like"
+                width="21"
+                height="19"
+                viewBox="0 0 21 19"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M19.3764 9.78586C21.5412 7.54338 21.5412 3.90213 19.3764 1.68186C17.2115 -0.560619 13.6964 -0.560619 11.5315 1.68186L10.4812 2.792L9.43098 1.70406C7.26614 -0.560619 3.75096 -0.560619 1.60755 1.68186C0.557285 2.76979 0 4.21297 0 5.74496C0 7.27695 0.578719 8.72013 1.60755 9.80806L10.4812 19L19.3764 9.78586ZM1.37178 5.74496C1.37178 4.59042 1.80046 3.52469 2.59352 2.72539C3.40801 1.88168 4.45828 1.45983 5.50855 1.45983C6.55882 1.45983 7.60909 1.88168 8.42358 2.72539L10.4812 4.83465L12.5389 2.70318C14.1465 1.03798 16.7829 1.03798 18.369 2.70318C19.1406 3.50248 19.5907 4.56821 19.5907 5.72276C19.5907 6.8773 19.162 7.94303 18.369 8.74233L10.4812 16.9351L2.59352 8.76453C1.82189 7.94303 1.37178 6.8773 1.37178 5.74496Z"
+                  fill="black"
+                />
+              </svg>
+            </div>
+          </div>
+        </section>
 
-                        <fieldset class="popup__container-form-texts">
-                            <input type="text" class="popup__container-form-texts-input" id="name" name="full-name" placeholder="Nome" required>
-                            <input type="text" class="popup__container-form-texts-input" id="about" name="about" placeholder="Sobre mim" required>
-                        </fieldset>
+        <section class="popup" id="popup">
+          <div class="popup__container">
+            <form class="popup__container-form">
+              <div class="popup__container-form-heading">
+                <h2 class="popup__container-form-heading-title">
+                  Editar Perfil
+                </h2>
+                <img
+                  src="./images/popup/popup-close.png"
+                  alt=""
+                  class="popup__container-form-heading-close"
+                  id="close-button"
+                />
+              </div>
 
-                        <fieldset class="popup__container-form-handler">
-                            <button class="popup__container-form-handler-button" id="save-button">Salvar</button>
-                        </fieldset>
+              <fieldset class="popup__container-form-texts">
+                <input
+                  type="text"
+                  class="popup__container-form-texts-input"
+                  id="name"
+                  name="full-name"
+                  placeholder="Nome"
+                  required
+                />
+                <input
+                  type="text"
+                  class="popup__container-form-texts-input"
+                  id="about"
+                  name="about"
+                  placeholder="Sobre mim"
+                  required
+                />
+              </fieldset>
 
-                    </form>
-                </div>
-            </section>
-        </main>
+              <fieldset class="popup__container-form-handler">
+                <button
+                  class="popup__container-form-handler-button"
+                  id="save-button"
+                >
+                  Salvar
+                </button>
+              </fieldset>
+            </form>
+          </div>
+        </section>
+      </main>
 
-        <footer class="footer">
-            <p class="footer__content">
-                &#169; 2023. Gabriel Santillo
-            </p>
-        </footer>
+      <footer class="footer">
+        <p class="footer__content">&#169; 2023. Gabriel Santillo</p>
+      </footer>
 
-        <script src="/scripts/index.js"></script>
-        
+      <script src="/scripts/index.js"></script>
     </div>
-</body>
+  </body>
 </html>
