@@ -1,13 +1,17 @@
 const closePopup = document.getElementById('close-button');
 const openPopup = document.querySelector('#edit-profile');
+
 const popupSection = document.querySelector('#popup');
 const popupSaveButton = document.getElementById('save-button');
 const profileName = document.getElementById('profile-name');
 const profileAbout = document.getElementById('profile-about');
+
 const elementWithAllImages = document.querySelector('.post');
+
 const addPost = document.querySelector('#add-post');
 const popupAddPost = document.querySelector('#popup-add-post');
 const closePopupPost = document.querySelector("#close-button-post");
+const savePostButton = document.querySelector("#save-button-post");
 
 
 const images = [
@@ -88,11 +92,31 @@ for (const image of images) {
 }
 
 
+function handlePost(evt) {
+  evt.preventDefault();
 
+  const postTitle = document.querySelector('#post-title');
+  const postImageUrl = document.querySelector('#post-image-url');
+
+  if(postTitle === "" || postImageUrl === "") {
+    return alert("Por favor, preencha todos os campos");
+  }
+
+  elementWithAllImages.append(renderPostCard({
+    title: postTitle.value,
+    url: postImageUrl.value
+  }))
+
+  handleClosePopup(evt);
+}
 
 
 openPopup.addEventListener('click', handleOpenPopup);
 closePopup.addEventListener('click', handleClosePopup);
+
 popupSaveButton.addEventListener('click', handleSaveButton);
+
 addPost.addEventListener('click', handleOpenPopup);
-closePopupPost.addEventListener('click', handleClosePopup)
+closePopupPost.addEventListener('click', handleClosePopup);
+
+savePostButton.addEventListener("click", handlePost);
