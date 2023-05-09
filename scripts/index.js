@@ -102,7 +102,7 @@ function handlePost(evt) {
     return alert("Por favor, preencha todos os campos");
   }
 
-  elementWithAllImages.append(renderPostCard({
+  elementWithAllImages.prepend(renderPostCard({
     title: postTitle.value,
     url: postImageUrl.value
   }))
@@ -120,3 +120,8 @@ addPost.addEventListener('click', handleOpenPopup);
 closePopupPost.addEventListener('click', handleClosePopup);
 
 savePostButton.addEventListener("click", handlePost);
+
+const removeButton = document.querySelector(".post__card-remove");
+removeButton.addEventListener('click', (evt) => {
+  evt.target.parentElement.remove();
+})
