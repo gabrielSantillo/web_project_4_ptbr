@@ -47,6 +47,10 @@
 @import url('../blocks/popup/__container/-form/-handler/popup__container-form-handler.css');
 @import url('../blocks/popup/__container/-form/-handler/-button/popup__container-form-handler-button.css');
 
+
+/* IMAGE */
+@import url('../blocks/image/image.css');
+
 /* FOOTER */
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__content/footer__content.css');
