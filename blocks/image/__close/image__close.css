@@ -1,0 +1,13 @@
+.image__close {
+    position: absolute;
+    left: 242px;
+    top: -30px;
+    width: 30px;
+    cursor: pointer;
+    object-fit: cover;
+}
+
+.image__close:hover {
+    transition: .4s;
+    opacity: 60%;
+}
