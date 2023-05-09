@@ -5,6 +5,8 @@ const popupSaveButton = document.getElementById('save-button');
 const profileName = document.getElementById('profile-name');
 const profileAbout = document.getElementById('profile-about');
 const elementWithAllImages = document.querySelector('.post');
+const addPost = document.querySelector('#add-post');
+const popupAddPost = document.querySelector('#popup-add-post');
 
 const images = [
     {
@@ -33,8 +35,12 @@ const images = [
     }
   ];
 
-function handleOpenPopup() {
+function handleOpenPopup(evt) {
+  if(evt.target.id === 'add-post') {
+    popupAddPost.classList.add("popup-opened");
+  } else {
     popupSection.classList.add('popup-opened');
+  } 
 }
 
 function handleClosePopup() {
@@ -79,3 +85,4 @@ for (const image of images) {
 openPopup.addEventListener('click', handleOpenPopup);
 closePopup.addEventListener('click', handleClosePopup);
 popupSaveButton.addEventListener('click', handleSaveButton);
+addPost.addEventListener('click', handleOpenPopup)
