@@ -43,8 +43,11 @@ const images = [
 function handleOpenPopup(evt) {
   if (evt.target.id === "add-post") {
     popupAddPost.classList.add("popup-opened");
-  } else {
+  } else if(evt.target.id === "edit-profile"){
     popupSection.classList.add("popup-opened");
+  } else {
+    const postImage = document.querySelector(".image");
+    postImage.classList.add("popup-opened");
   }
 }
 
@@ -97,6 +100,14 @@ function renderPostCard(post) {
     .addEventListener("click", (evt) => {
       evt.target.parentElement.remove();
     });
+
+    /* FUNCTION TO OPEN THE POPUP IMAGE */
+    postElement.querySelector(".post__card-image").addEventListener("click", (evt) => {
+      const postImage = document.querySelector(".image__container-photo");
+      postImage.setAttribute("src", evt.target.src);
+      
+      handleOpenPopup(evt);
+    })
 
   return postElement;
 }
