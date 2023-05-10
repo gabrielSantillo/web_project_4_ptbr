@@ -8,3 +8,12 @@
     margin-top: -149.5px;  /* Negative half of height. */
     margin-left: -120px;  /* Negative half of width. */
 }
+
+@media screen and (min-width: 1280px) { 
+    .image__container {
+        height: 540px;
+        width: 400px;
+        margin-top: -270px;  /* Negative half of height. */
+        margin-left: -200px;
+    }
+}
