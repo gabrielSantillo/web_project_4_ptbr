@@ -51,9 +51,9 @@
 /* IMAGE */
 @import url('../blocks/image/image.css');
 @import url('../blocks/image/__container/image__container.css');
-@import url('../blocks/image/__close/image__close.css');
-@import url('../blocks/image/__photo/image__photo.css');
-@import url('../blocks/image/__name/image__name.css');
+@import url('../blocks/image/__container/-close/image__container-close.css');
+@import url('../blocks/image/__container/-name/image__container-name.css');
+@import url('../blocks/image/__container/-photo/image__container-photo.css');
 
 /* FOOTER */
 @import url('../blocks/footer/footer.css');
