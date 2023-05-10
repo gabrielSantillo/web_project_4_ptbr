@@ -50,6 +50,7 @@
 
 /* IMAGE */
 @import url('../blocks/image/image.css');
+@import url('../blocks/image/__container/image__container.css');
 @import url('../blocks/image/__close/image__close.css');
 @import url('../blocks/image/__photo/image__photo.css');
 @import url('../blocks/image/__name/image__name.css');
