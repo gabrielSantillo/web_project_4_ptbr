@@ -1,7 +1,7 @@
 .image__container-name {
     color: #fff;
     position: absolute;
-    transform: translateY(40px);
+    transform: translateY(300px);
     font-family: 'inter', Arial, sans-serif;
     font-size: 12px;
 }
@@ -9,5 +9,6 @@
 @media screen and (min-width: 1280px) { 
     .image__container-name {
         bottom: 0;
+        transform: translateY(40px);
     }
 }
