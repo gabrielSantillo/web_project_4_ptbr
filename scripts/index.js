@@ -65,10 +65,10 @@ function handleClosePopup(evt) {
 function handleSaveButton(evt) {
   evt.preventDefault();
 
-  let name = document.getElementById("name");
-  let about = document.getElementById("about");
+  const name = document.getElementById("name");
+  const about = document.getElementById("about");
 
-  if (name.value === "" || about.value === "") {
+  if (!name.value || !about.value) {
     return alert("Please, complete the entire form before saving.");
   }
 
