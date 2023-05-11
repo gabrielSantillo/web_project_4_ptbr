@@ -85,7 +85,7 @@ function renderPostCard(post) {
   postElement.querySelector(".post__card-image").setAttribute("src", post.url);
   postElement
     .querySelector(".post__card-image")
-    .setAttribute("alt", `Imagem de ${post.url}`);
+    .setAttribute("alt", `Imagem de ${post.title}`);
   postElement.querySelector(".post__card-content-title").textContent =
     post.title;
 
