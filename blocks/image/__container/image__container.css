@@ -7,6 +7,8 @@
     left: 50%;
     margin-top: -149.5px;  /* Negative half of height. */
     margin-left: -120px;  /* Negative half of width. */
+
+    display: grid;
 }
 
 @media screen and (min-width: 1280px) { 

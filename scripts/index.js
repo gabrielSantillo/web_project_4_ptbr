@@ -105,6 +105,7 @@ function renderPostCard(post) {
     postElement.querySelector(".post__card-image").addEventListener("click", (evt) => {
       const postImage = document.querySelector(".image__container-photo");
       postImage.setAttribute("src", evt.target.src);
+      postImage.setAttribute("alt", `Foto do ${evt.target.src}`)
       
       handleOpenPopup(evt);
     })
