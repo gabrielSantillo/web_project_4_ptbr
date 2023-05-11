@@ -34,6 +34,18 @@
 @import url('../blocks/post/__card/-content/-title/post__card-content-title.css');
 @import url('../blocks/post/__card/-content/-like/post__card-content-like.css');
 
+
+/* IMAGE */
+@import url('../blocks/image/image.css');
+@import url('../blocks/image/__container/image__container.css');
+@import url('../blocks/image/__container/-close/image__container-close.css');
+@import url('../blocks/image/__container/-name/image__container-name.css');
+@import url('../blocks/image/__container/-photo/image__container-photo.css');
+
+/* FOOTER */
+@import url('../blocks/footer/footer.css');
+@import url('../blocks/footer/__content/footer__content.css');
+
 /* POPUP */
 @import url('../blocks/popup/popup.css');
 @import url('../blocks//popup/-opened/popup__opened.css');
@@ -46,15 +58,3 @@
 @import url('../blocks/popup/__container/-form/-texts/-input/popup__container-form-texts-input.css');
 @import url('../blocks/popup/__container/-form/-handler/popup__container-form-handler.css');
 @import url('../blocks/popup/__container/-form/-handler/-button/popup__container-form-handler-button.css');
-
-
-/* IMAGE */
-@import url('../blocks/image/image.css');
-@import url('../blocks/image/__container/image__container.css');
-@import url('../blocks/image/__container/-close/image__container-close.css');
-@import url('../blocks/image/__container/-name/image__container-name.css');
-@import url('../blocks/image/__container/-photo/image__container-photo.css');
-
-/* FOOTER */
-@import url('../blocks/footer/footer.css');
-@import url('../blocks/footer/__content/footer__content.css');

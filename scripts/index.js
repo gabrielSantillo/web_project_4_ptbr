@@ -137,6 +137,12 @@ function handlePost(evt) {
   handleClosePopup(evt);
 }
 
+
+const closePopupImage = document.querySelector(".image__container-close")
+closePopupImage.addEventListener('click', (evt) => {
+  evt.target.parentElement.parentElement.classList.remove("popup-opened");
+})
+
 openPopup.addEventListener("click", handleOpenPopup);
 closePopup.addEventListener("click", handleClosePopup);
 
