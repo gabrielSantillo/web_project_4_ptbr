@@ -1,7 +1,6 @@
 .image__container-name {
     color: #fff;
     position: absolute;
-    transform: translateY(300px);
     font-family: 'inter', Arial, sans-serif;
     font-size: 12px;
 }
