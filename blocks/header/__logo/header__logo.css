@@ -1,7 +1,7 @@
 .header__logo {
     margin-top: 28px;
-    margin-left: 27px;
     margin-bottom: 32px;
+    justify-self: center;
 }
 
 @media screen and (min-width: 768px) {

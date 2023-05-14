@@ -7,5 +7,13 @@
         display: flex;
         margin-top: 45px;
         margin-bottom: 41px;
+        justify-self: center;
+    }
+}
+
+@media screen and (min-width: 1280px) { 
+    .header__logo-bigger {
+        justify-self: start;
+        margin-left: 199px;
     }
 }
