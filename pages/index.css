@@ -46,6 +46,11 @@
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__content/footer__content.css');
 
+/* BUTTON */
+@import url('../blocks/button/button.css');
+@import url('../blocks/button/_active/button_active.css');
+@import url('../blocks/button/_inactive/button_inactive.css');
+
 /* POPUP */
 @import url('../blocks/popup/popup.css');
 @import url('../blocks//popup/-opened/popup__opened.css');
