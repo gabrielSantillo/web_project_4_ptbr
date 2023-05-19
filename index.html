@@ -52,7 +52,10 @@
                   Jacques Cousteau
                 </h1>
                 <button class="profile__info-content-edit" id="edit-profile">
-                  <img src="./images/profile/profile-edit-pencil.png" alt="Imagem de um lápis para representar o botão de editar" />
+                  <img
+                    src="./images/profile/profile-edit-pencil.png"
+                    alt="Imagem de um lápis para representar o botão de editar"
+                  />
                 </button>
               </div>
               <p class="profile__info-description" id="profile-about">
@@ -66,8 +69,7 @@
           </button>
         </section>
 
-        <section class="post">
-        </section>
+        <section class="post"></section>
 
         <section class="popup" id="popup">
           <div class="popup__container">
@@ -108,14 +110,12 @@
                 />
                 <span class="input__message input__about-message"></span>
                 <button
-                class="popup__container-form-button form__submit"
-                id="save-button"
-              >
-                Salvar
-              </button>
+                  class="popup__container-form-button form__submit"
+                  id="save-button"
+                >
+                  Salvar
+                </button>
               </fieldset>
-
-
             </form>
           </div>
         </section>
@@ -124,9 +124,7 @@
           <div class="popup__container">
             <form class="popup__container-form form">
               <div class="popup__container-form-heading">
-                <h2 class="popup__container-form-heading-title">
-                  Novo Lugar
-                </h2>
+                <h2 class="popup__container-form-heading-title">Novo Lugar</h2>
                 <img
                   src="./images/popup/popup-close.png"
                   alt=""
@@ -154,11 +152,8 @@
                   required
                 />
                 <span class="input__message input__url-message"></span>
-              </fieldset>
-
-              <fieldset class="popup__container-form-handler">
                 <button
-                  class="popup__container-form-handler-button form__submit"
+                  class="popup__container-form-button form__submit"
                   id="save-button-post"
                 >
                   Salvar
@@ -170,8 +165,12 @@
 
         <section class="image">
           <div class="image__container">
-            <img src="./images/popup/popup-close.png" alt="" class="image__container-close">
-            <img src=" " alt="" class="image__container-photo">
+            <img
+              src="./images/popup/popup-close.png"
+              alt=""
+              class="image__container-close"
+            />
+            <img src=" " alt="" class="image__container-photo" />
             <p class="image__container-name">TESTE</p>
           </div>
         </section>
@@ -179,11 +178,20 @@
 
       <template id="template">
         <div class="post__card">
-          <img src=" " alt="" class="post__card-image">
-          <img src="./images/post/post-remove.png" alt="" class="post__card-remove" id="remove-button">
+          <img src=" " alt="" class="post__card-image" />
+          <img
+            src="./images/post/post-remove.png"
+            alt=""
+            class="post__card-remove"
+            id="remove-button"
+          />
           <div class="post__card-content">
             <h2 class="post__card-content-title"></h2>
-            <img src="./images/post/post-like.png" alt="Imagem de um coração" class="post__card-content-like">
+            <img
+              src="./images/post/post-like.png"
+              alt="Imagem de um coração"
+              class="post__card-content-like"
+            />
           </div>
         </div>
       </template>
