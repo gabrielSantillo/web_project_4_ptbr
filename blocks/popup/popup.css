@@ -12,9 +12,9 @@
     margin-left: -141px;  /* Negative half of width. */
     z-index: 99;
 
-    /* visibility: hidden;
+    visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear; */
+    transition: visibility 0s, opacity 0.5s linear;
 }
 
 @media screen and (min-width: 1280px) { 
