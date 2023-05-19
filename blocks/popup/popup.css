@@ -1,6 +1,6 @@
 .popup {
     width: 282px;
-    height: 322px;
+    height: 400px;
     background-color: #fff;
     color: #000;
     border-radius: 10px;
@@ -8,20 +8,20 @@
     position: fixed;
     top: 50%;
     left: 50%;
-    margin-top: -161px;  /* Negative half of height. */
+    margin-top: -200px;  /* Negative half of height. */
     margin-left: -141px;  /* Negative half of width. */
     z-index: 99;
 
-    /* visibility: hidden;
+    visibility: hidden;
     opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear; */
+    transition: visibility 0s, opacity 0.5s linear;
 }
 
 @media screen and (min-width: 1280px) { 
     .popup {
         width: 430px;
-        height: 330px;
-        margin-top: -165px;  /* Negative half of height. */
+        height: 400px;
+        margin-top: -200px;  /* Negative half of height. */
         margin-left: -215px;  /* Negative half of width. */
     }
 }

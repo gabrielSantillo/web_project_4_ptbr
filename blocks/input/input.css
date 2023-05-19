@@ -1,0 +1,11 @@
+.input:focus {
+    border: 1px solid #007DFF;
+}
+
+.input:valid {
+    border-bottom: 1px solid #4CAF50;
+}
+
+.input:invalid {
+    border-bottom: 1px solid #dd1313;
+}
