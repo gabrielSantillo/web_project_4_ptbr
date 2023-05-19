@@ -73,7 +73,7 @@
 
         <section class="popup" id="popup">
           <div class="popup__container">
-            <form class="popup__container-form form">
+            <form class="popup__container-form form" novalidate>
               <div class="popup__container-form-heading">
                 <h2 class="popup__container-form-heading-title">
                   Editar Perfil
@@ -122,7 +122,7 @@
 
         <section class="popup post-popup" id="popup-add-post">
           <div class="popup__container">
-            <form class="popup__container-form form">
+            <form class="popup__container-form form" novalidate>
               <div class="popup__container-form-heading">
                 <h2 class="popup__container-form-heading-title">Novo Lugar</h2>
                 <img
@@ -142,7 +142,7 @@
                   placeholder="Título"
                   required
                 />
-                <span class="input__message input__post-title-error">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
+                <span class="input__message input__post-title-error"></span>
                 <input
                   type="url"
                   class="popup__container-form-texts-input form__input input"
@@ -151,7 +151,7 @@
                   placeholder="URL da imagem"
                   required
                 />
-                <span class="input__message input__post-image-url-error">Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
+                <span class="input__message input__post-image-url-error"></span>
                 <button
                   class="popup__container-form-button form__submit"
                   id="save-button-post"
