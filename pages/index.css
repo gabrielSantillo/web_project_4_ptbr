@@ -46,11 +46,6 @@
 @import url('../blocks/footer/footer.css');
 @import url('../blocks/footer/__content/footer__content.css');
 
-/* BUTTON */
-@import url('../blocks/button/button.css');
-@import url('../blocks/button/_active/button_active.css');
-@import url('../blocks/button/_inactive/button_inactive.css');
-
 /* POPUP */
 @import url('../blocks/popup/popup.css');
 @import url('../blocks//popup/-opened/popup__opened.css');
@@ -63,3 +58,13 @@
 @import url('../blocks/popup/__container/-form/-texts/-input/popup__container-form-texts-input.css');
 @import url('../blocks/popup/__container/-form/-handler/popup__container-form-handler.css');
 @import url('../blocks/popup/__container/-form/-handler/-button/popup__container-form-handler-button.css');
+
+/* BUTTON */
+@import url('../blocks/button/button.css');
+@import url('../blocks/button/_active/button_active.css');
+@import url('../blocks/button/_inactive/button_inactive.css');
+
+/* INPUT */
+@import url('../blocks/input/input.css');
+@import url('../blocks/input/__error/input__error.css');
+@import url('../blocks/input/__message/input__message.css');
