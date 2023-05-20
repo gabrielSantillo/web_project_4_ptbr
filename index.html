@@ -7,11 +7,6 @@
     <title>PRACTICUM</title>
     <link rel="stylesheet" href="./pages/index.css" />
   </head>
-  <!-- "Note que seu layout mobile é aplicado quando sua tela é menor que 1280px.""
-  Eduardo, veja se o que fiz corrije o que você quer dizer com essa frase por favor. O layout mobile só muda em telas menores que 768px.
-  Note que a section post para layout menores que 1280px eu altero para ter 2 colunas pois em uma tela de 768px 3 colunas não caberiam.
-  Se não for esse o ajuste que você pede, por favor me diga exatamente onde e o que você quer de alteração. Já perdi 4 dias de conteúdo dessa nova sprint e gostaria de iniciá-lo o quanto antes. 
-  Obrigado -->
   <body class="body">
     <div class="page">
       <header class="header">
@@ -72,7 +67,7 @@
         <section class="post"></section>
 
         <section class="popup" id="popup">
-          <div class="popup__container">
+          <div class="popup__container close-popup">
             <form class="popup__container-form form" novalidate>
               <div class="popup__container-form-heading">
                 <h2 class="popup__container-form-heading-title">
@@ -121,7 +116,7 @@
         </section>
 
         <section class="popup post-popup" id="popup-add-post">
-          <div class="popup__container">
+          <div class="popup__container close-popup">
             <form class="popup__container-form form" novalidate>
               <div class="popup__container-form-heading">
                 <h2 class="popup__container-form-heading-title">Novo Lugar</h2>
@@ -166,14 +161,14 @@
         </section>
 
         <section class="image">
-          <div class="image__container">
+          <div class="image__container close-popup">
             <img
               src="./images/popup/popup-close.png"
               alt=""
               class="image__container-close"
             />
             <img src=" " alt="" class="image__container-photo" />
-            <p class="image__container-name">TESTE</p>
+            <p class="image__container-name"></p>
           </div>
         </section>
       </main>
