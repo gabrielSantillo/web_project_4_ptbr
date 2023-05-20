@@ -158,9 +158,11 @@ closePopupPost.addEventListener("click", handleClosePopup);
 
 savePostButton.addEventListener("click", handlePost);
 
-// // pegar todas as classes que tem form e então pegar o elemnto pai e ao clicar nesse elemnto pai, que nada mais é que tudo que está por fora, o popup ou imagem fecham
 
-// const popupClose = document.querySelector(".close-popup");
-// popupClose.addEventListener("click", () => {
-//   console.log(screen)
-// })
+// function that will close the popup when clicked outside of them
+const popupClose = document.querySelectorAll(".close-popup");
+popupClose.forEach(container => {
+  container.addEventListener("click", (evt) => {
+    evt.target.classList.remove("popup-opened");
+  })
+});
