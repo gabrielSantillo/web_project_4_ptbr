@@ -13,6 +13,9 @@ const popupAddPost = document.querySelector("#popup-add-post");
 const closePopupPost = document.querySelector("#close-button-post");
 const savePostButton = document.querySelector("#save-button-post");
 
+// function that will close the popup when clicked outside of them
+const popupClose = document.querySelectorAll(".close-popup");
+
 const images = [
   {
     title: "Vale de Yosemite",
@@ -39,6 +42,15 @@ const images = [
     url: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
   },
 ];
+
+document.onkeydown = (evt) => {
+  if (evt.key === "Escape") {
+    if(popupSection.classList.contains("popup-opened")) {
+      console.log("tem")
+    } else {
+      console.log("nao tem")
+    }
+}}
 
 function handleOpenPopup(evt) {
   if (evt.target.id === "add-post") {
@@ -158,11 +170,11 @@ closePopupPost.addEventListener("click", handleClosePopup);
 
 savePostButton.addEventListener("click", handlePost);
 
-
-// function that will close the popup when clicked outside of them
-const popupClose = document.querySelectorAll(".close-popup");
+// Closing a popup when clicking outside of it
 popupClose.forEach(container => {
   container.addEventListener("click", (evt) => {
     evt.target.classList.remove("popup-opened");
   })
 });
+
+
