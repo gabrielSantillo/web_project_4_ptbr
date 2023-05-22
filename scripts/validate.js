@@ -36,9 +36,9 @@ const toggleButtonState = (inputList, buttonElement) => {
   }
 };
 
-const setEventListeners = (formElement) => {
-  const inputList = Array.from(formElement.querySelectorAll(".form__input"));
-  const buttonElement = formElement.querySelector(".form__submit");
+const setEventListeners = (formElement, listOfClasses) => {
+  const inputList = Array.from(formElement.querySelectorAll(listOfClasses.formInput));
+  const buttonElement = formElement.querySelector(listOfClasses.submitButtonSelector);
 
   toggleButtonState(inputList, buttonElement);
 
@@ -50,25 +50,26 @@ const setEventListeners = (formElement) => {
   });
 };
 
-const enableValidation = (objeto) => {
-  const formList = Array.from(document.querySelectorAll(objeto.formSelector));
+const enableValidation = (listOfClasses) => {
+  const formList = Array.from(document.querySelectorAll(listOfClasses.formSelector));
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", function (evt) {
       evt.preventDefault();
     });
 
-    const fieldsetList = Array.from(formElement.querySelectorAll(".form__set"));
+    const fieldsetList = Array.from(formElement.querySelectorAll(listOfClasses.fieldsetList));
 
     fieldsetList.forEach((fieldset) => {
-      setEventListeners(fieldset);
+      setEventListeners(fieldset, listOfClasses);
     });
   });
 };
 
 enableValidation({
     formSelector: ".form",
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__button",
+    fieldsetList: ".form__set",
+    formInput: ".form__input",
+    submitButtonSelector: ".form__submit",
     inactiveButtonClass: "popup__button_disabled",
     inputErrorClass: "popup__input_type_error",
     errorClass: "popup__error_visible"
