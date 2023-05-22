@@ -32,7 +32,7 @@ const toggleButtonState = (inputList, buttonElement) => {
     buttonElement.setAttribute("disabled", true);
   } else {
     buttonElement.classList.remove("button_inactive");
-    buttonElement.setAttribute("disabled", false);
+    buttonElement.removeAttribute("disabled");
   }
 };
 
@@ -65,4 +65,11 @@ const enableValidation = () => {
   });
 };
 
-enableValidation();
+enableValidation({
+    formSelector: ".popup__form",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__button",
+    inactiveButtonClass: "popup__button_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible"
+  });
