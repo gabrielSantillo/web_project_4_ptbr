@@ -44,12 +44,15 @@ const images = [
 ];
 
 document.onkeydown = (evt) => {
-  if (evt.key === "Escape") {
-    if(popupSection.classList.contains("popup-opened")) {
-      console.log("tem")
-    } else {
+  if (evt.key === "Escape") { 
+    const popup = Array.from(querySelectorAll(".popup"));
+    popup.forEach((element) => {
+      element.classList.remove("popup-opened");
+    })
+    console.log("tem")
+  } else {
       console.log("nao tem")
-    }
+    
 }}
 
 function handleOpenPopup(evt) {

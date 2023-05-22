@@ -50,8 +50,8 @@ const setEventListeners = (formElement) => {
   });
 };
 
-const enableValidation = () => {
-  const formList = Array.from(document.querySelectorAll(".form"));
+const enableValidation = (objeto) => {
+  const formList = Array.from(document.querySelectorAll(objeto.formSelector));
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", function (evt) {
       evt.preventDefault();
@@ -66,7 +66,7 @@ const enableValidation = () => {
 };
 
 enableValidation({
-    formSelector: ".popup__form",
+    formSelector: ".form",
     inputSelector: ".popup__input",
     submitButtonSelector: ".popup__button",
     inactiveButtonClass: "popup__button_disabled",
