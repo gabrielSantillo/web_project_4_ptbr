@@ -57,6 +57,7 @@
 @import url('../blocks/popup/__container/-form/-texts/popup__container-form-texts.css');
 @import url('../blocks/popup/__container/-form/-button/popup__container-form-button.css');
 @import url('../blocks/popup/__container/-form/-texts/-input/popup__container-form-texts-input.css');
+@import url('../blocks/popup/__container/-form/-texts/-error/popup__container-form-texts-error.css');
 
 
 /* BUTTON */
