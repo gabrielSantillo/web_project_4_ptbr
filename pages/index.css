@@ -1,4 +1,4 @@
-@import url('../vendor/normalize.css');
+
 
 /* fonts */
 @import url('../vendor/fonts/fonts.css');
@@ -59,13 +59,8 @@
 @import url('../blocks/popup/__container/-form/-texts/-input/popup__container-form-texts-input.css');
 @import url('../blocks/popup/__container/-form/-texts/-error/popup__container-form-texts-error.css');
 
-
 /* BUTTON */
-@import url('../blocks/button/button.css');
-@import url('../blocks/button/_active/button_active.css');
 @import url('../blocks/button/_inactive/button_inactive.css');
 
 /* INPUT */
 @import url('../blocks/input/input.css');
-@import url('../blocks/input/__error/input__error.css');
-@import url('../blocks/input/_message/input_message.css');
