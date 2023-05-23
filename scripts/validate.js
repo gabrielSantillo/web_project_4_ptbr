@@ -26,7 +26,8 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-const toggleButtonState = (inputList, buttonElement) => {
+// at this function when trying to access the inactiveButtonClass value I get an error
+const toggleButtonState = (inputList, buttonElement, listOfClasses) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add("button_inactive");
     buttonElement.setAttribute("disabled", true);
@@ -40,7 +41,7 @@ const setEventListeners = (formElement, listOfClasses) => {
   const inputList = Array.from(formElement.querySelectorAll(listOfClasses.formInput));
   const buttonElement = formElement.querySelector(listOfClasses.submitButtonSelector);
 
-  toggleButtonState(inputList, buttonElement);
+  toggleButtonState(inputList, buttonElement, listOfClasses);
 
   inputList.forEach((inputElement) => {
     inputElement.addEventListener("input", function () {
@@ -70,7 +71,7 @@ enableValidation({
     fieldsetList: ".form__set",
     formInput: ".form__input",
     submitButtonSelector: ".form__submit",
-    inactiveButtonClass: "popup__button_disabled",
+    inactiveButtonClass: "button_inactive",
     inputErrorClass: "popup__input_type_error",
     errorClass: "popup__error_visible"
   });
