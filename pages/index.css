@@ -67,4 +67,4 @@
 /* INPUT */
 @import url('../blocks/input/input.css');
 @import url('../blocks/input/__error/input__error.css');
-@import url('../blocks/input/__message/input__message.css');
+@import url('../blocks/input/_message/input_message.css');
