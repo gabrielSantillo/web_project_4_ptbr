@@ -1,14 +1,10 @@
 const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.popup__container-form-texts-${inputElement.id}-error`);
-//   inputElement.classList.add("form__input_type_error");
   errorElement.textContent = errorMessage;
-//   errorElement.classList.add("form__input-error_active");
 };
 
 const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`.popup__container-form-texts-${inputElement.id}-error`);
-//   inputElement.classList.remove("form__input_type_error");
-//   errorElement.classList.remove("form__input-error_active");
   errorElement.textContent = "";
 };
 
@@ -26,8 +22,7 @@ const hasInvalidInput = (inputList) => {
   });
 };
 
-// at this function when trying to access the inactiveButtonClass value I get an error
-const toggleButtonState = (inputList, buttonElement, listOfClasses) => {
+const toggleButtonState = (inputList, buttonElement) => {
   if (hasInvalidInput(inputList)) {
     buttonElement.classList.add("button_inactive");
     buttonElement.setAttribute("disabled", true);
@@ -52,7 +47,7 @@ const setEventListeners = (formElement, listOfClasses) => {
 };
 
 const enableValidation = (listOfClasses) => {
-  const formList = Array.from(document.querySelectorAll(listOfClasses.formSelector));
+  const formList = document.querySelectorAll(listOfClasses.formSelector);
   formList.forEach((formElement) => {
     formElement.addEventListener("submit", function (evt) {
       evt.preventDefault();
