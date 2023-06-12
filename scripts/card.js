@@ -47,6 +47,16 @@ class Card {
     return cardElement;
   }
 
+  generateCard() {
+    this._element = super._getTemplate();
+    super._setEventListeners();
+
+    this._element.querySelector(".image__container-photo").style.backgroundImage = `url(${this._image})`;
+    this._element.querySelector(".image__container-name").textContent = this._caption;
+
+    return this._element;
+  }
+
   _handleOpenPopup() {
     popupImage.src = this._image;
     popupCaption.textContent = this._caption;
