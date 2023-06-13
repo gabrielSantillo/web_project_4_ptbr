@@ -9,7 +9,7 @@ const popupSaveButton = document.getElementById("save-button");
 const profileName = document.getElementById("profile-name");
 const profileAbout = document.getElementById("profile-about");
 
-const elementWithAllImages = document.querySelector(".post");
+const cardElement = document.querySelector(".post");
 
 const addPost = document.querySelector("#add-post");
 const popupAddPost = document.querySelector("#popup-add-post");
@@ -49,7 +49,7 @@ const images = [
 for (const image of images) {
   const card = new Card(image.url, image.title);
   const cardItem = card.generateCard();
-  elementWithAllImages.append(cardItem);
+  cardElement.append(cardItem);
 }
 
 document.onkeydown = (evt) => {
@@ -66,10 +66,7 @@ function handleOpenPopup(evt) {
     popupAddPost.classList.add("popup-opened");
   } else if (evt.target.id === "edit-profile") {
     popupSection.classList.add("popup-opened");
-  } else {
-    const postImage = document.querySelector(".image");
-    postImage.classList.add("popup-opened");
-  }
+  } 
 }
 
 function handleClosePopup(evt) {
@@ -99,53 +96,6 @@ function handleSaveButton(evt) {
   handleClosePopup(evt);
 }
 
-function renderPostCard(post) {
-  const postTemplate = document.querySelector("#template").content;
-  const postElement = postTemplate.querySelector(".post__card").cloneNode(true);
-
-  postElement.querySelector(".post__card-image").setAttribute("src", post.url);
-  postElement
-    .querySelector(".post__card-image")
-    .setAttribute("alt", `Imagem de ${post.title}`);
-  postElement.querySelector(".post__card-content-title").textContent =
-    post.title;
-
-  postElement
-    .querySelector(".post__card-content-like")
-    .addEventListener("click", (evt) => {
-      evt.target.setAttribute("src", "./images/post/post-like-filled.png");
-    });
-
-  postElement
-    .querySelector(".post__card-remove")
-    .addEventListener("click", (evt) => {
-      evt.target.parentElement.remove();
-    });
-
-  /* FUNCTION TO OPEN THE POPUP IMAGE */
-  postElement
-    .querySelector(".post__card-image")
-    .addEventListener("click", (evt) => {
-      const postImageTitleContent =
-        evt.target.nextElementSibling.nextElementSibling;
-      const postImage = document.querySelector(".image__container-photo");
-      const postImageTitle = document.querySelector(".image__container-name");
-
-      postImage.setAttribute("src", evt.target.src);
-      postImage.setAttribute("alt", `Foto do ${evt.target.src}`);
-      postImageTitle.textContent = postImageTitleContent.textContent;
-
-      handleOpenPopup(evt);
-    });
-
-  return postElement;
-}
-
-for (const image of images) {
-  const postCreated = renderPostCard(image);
-  elementWithAllImages.append(postCreated);
-}
-
 function handlePost(evt) {
   evt.preventDefault();
 
@@ -156,7 +106,7 @@ function handlePost(evt) {
     return alert("Por favor, preencha todos os campos");
   }
 
-  elementWithAllImages.prepend(
+  cardElement.prepend(
     renderPostCard({
       title: postTitle.value,
       url: postImageUrl.value,
@@ -165,11 +115,6 @@ function handlePost(evt) {
 
   handleClosePopup(evt);
 }
-
-const closePopupImage = document.querySelector(".image__container-close");
-closePopupImage.addEventListener("click", (evt) => {
-  evt.target.parentElement.parentElement.classList.remove("popup-opened");
-});
 
 openPopup.addEventListener("click", handleOpenPopup);
 closePopup.addEventListener("click", handleClosePopup);
