@@ -47,7 +47,7 @@ const images = [
 ];
 
 for (const image of images) {
-  const card = new Card(image.url, image.title, ".post__card-content-like", ".post__card-remove");
+  const card = new Card(image.url, image.title);
   const cardItem = card.generateCard();
   elementWithAllImages.append(cardItem);
 }

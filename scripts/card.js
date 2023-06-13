@@ -32,11 +32,9 @@ const popupCaption = document.querySelector(".image__container-name");
 
 
 export default class Card {
-  constructor(image, caption, buttonLike, buttonDelete) {
+  constructor(image, caption) {
     this._image = image;
     this._caption = caption;
-    this._buttonLike = buttonLike;
-    this._buttonDelete = buttonDelete;
   }
 
   // probably I will have to switch an id for a class template
@@ -69,15 +67,16 @@ export default class Card {
     popupElement.classList.remove("popup-opened");
   }
 
-  _handleDeleteButton() {
-    const postCard = document.querySelectorAll(".post__card")
-    postCard.forEach((item) => {
-      item.remove();
-    })
+  _handleDeleteButton(evt) {
+    evt.target.parentElement.remove();
+  }
+
+  _handleLikeButton(evt) {
+    evt.target.setAttribute("src", "./images/post/post-like-filled.png");
   }
 
   _setEventListeners() {
-    this._element.addEventListener("click", () => {
+    this._element.querySelector(".post__card-image").addEventListener("click", () => {
       this._handleOpenPopup();
     });
 
@@ -85,8 +84,13 @@ export default class Card {
       this._handleClosePopup();
     });
 
-    this._buttonDelete.addEventListener("click", () => {
-      this._handleDeleteButton();
-    })
+    this._element.querySelector(".post__card-remove").addEventListener("click", (evt) => {
+      this._handleDeleteButton(evt);
+    });
+
+    this._element.querySelector(".post__card-content-like").addEventListener("click", (evt) => {
+      this._handleLikeButton(evt);
+    });
+
   }
 }
