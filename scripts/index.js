@@ -1,3 +1,6 @@
+import Card from "./Card.js";
+
+
 const closePopup = document.getElementById("close-button");
 const openPopup = document.querySelector("#edit-profile");
 

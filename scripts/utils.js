@@ -47,12 +47,6 @@ function handleClosePopup(evt) {
   }
 }
 
-for (const image of images) {
-  const postCreated = renderPostCard(image);
-  elementWithAllImages.append(postCreated);
-}
-
-// I believe these teo functions handleSaveButton and handlePost must be on the index.js file
 function handleSaveButton(evt) {
   evt.preventDefault();
 

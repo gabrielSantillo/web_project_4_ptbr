@@ -30,7 +30,7 @@ const popupCloseButton = document.querySelector(".image__container-close");
 const popupImage = document.querySelector(".image__container-photo");
 const popupCaption = document.querySelector(".image__container-name");
 
-class Card {
+export default class Card {
   constructor(image, caption, cardSelector) {
     this._image = image;
     this._caption = caption;
@@ -48,10 +48,10 @@ class Card {
   }
 
   generateCard() {
-    this._element = super._getTemplate();
-    super._setEventListeners();
+    this._element = this._getTemplate();
+    this._setEventListeners();
 
-    this._element.querySelector(".image__container-photo").style.backgroundImage = `url(${this._image})`;
+    this._element.querySelector(".image__container-photo").setAttribute("src", this._image);
     this._element.querySelector(".image__container-name").textContent = this._caption;
 
     return this._element;

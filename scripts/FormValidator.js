@@ -8,9 +8,19 @@ const config = {
 };
 
 class FormValidator {
-  constructor(data, formSelection) {}
+  constructor(data, formSelection) {
+    this._form = document.querySelector(formSelection);
+    this._input = Array.from()
 
-  _showInputError = (formElement, inputElement, errorMessage) => {
+    // const inputList = Array.from(
+    //   formElement.querySelectorAll(listOfClasses.formInput)
+    // );
+    // const buttonElement = formElement.querySelector(
+    //   listOfClasses.submitButtonSelector
+    // );
+  }
+
+  _showInputError(formElement, inputElement, errorMessage) {
     const errorElement = formElement.querySelector(
       `.popup__container-form-texts-${inputElement.id}-error`
     );
@@ -24,7 +34,7 @@ class FormValidator {
     errorElement.textContent = "";
   };
 
-  _checkInputValidity = (formElement, inputElement) => {
+  _checkInputValidity (formElement, inputElement) {
     if (!inputElement.validity.valid) {
       showInputError(formElement, inputElement, inputElement.validationMessage);
     } else {
@@ -32,13 +42,13 @@ class FormValidator {
     }
   };
 
-  _hasInvalidInput = (inputList) => {
+  _hasInvalidInput (inputList) {
     return inputList.some((inputElement) => {
       return !inputElement.validity.valid;
     });
   };
 
-  _toggleButtonState = (inputList, buttonElement) => {
+  _toggleButtonState (inputList, buttonElement) {
     if (hasInvalidInput(inputList)) {
       buttonElement.classList.add("button_inactive");
       buttonElement.setAttribute("disabled", true);
@@ -48,7 +58,7 @@ class FormValidator {
     }
   };
 
-  _setEventListeners = (formElement, listOfClasses) => {
+  _setEventListeners (formElement, listOfClasses) {
     const inputList = Array.from(
       formElement.querySelectorAll(listOfClasses.formInput)
     );
@@ -66,7 +76,7 @@ class FormValidator {
     });
   };
 
-  enableValidation = (listOfClasses) => {
+  enableValidation (listOfClasses) {
     const formList = document.querySelectorAll(listOfClasses.formSelector);
     formList.forEach((formElement) => {
       formElement.addEventListener("submit", function (evt) {
