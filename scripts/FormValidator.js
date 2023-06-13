@@ -1,4 +1,4 @@
-const config = {
+const listOfClasses = {
   formSelector: ".form",
   fieldsetList: ".form__set",
   formInput: ".form__input",

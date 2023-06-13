@@ -46,6 +46,11 @@ const images = [
   },
 ];
 
+for (const image of images) {
+  const card = new Card(image.title, image.url, "#template");
+  console.log(card);
+}
+
 document.onkeydown = (evt) => {
   if (evt.key === "Escape") {
     const popup = Array.from(document.querySelectorAll(".popup"));
