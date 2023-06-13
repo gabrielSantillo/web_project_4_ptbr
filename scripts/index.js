@@ -47,8 +47,9 @@ const images = [
 ];
 
 for (const image of images) {
-  const card = new Card(image.title, image.url, "#template");
-  console.log(card);
+  const card = new Card(image.url, image.title, ".post__card-content-like", ".post__card-remove");
+  const cardItem = card.generateCard();
+  elementWithAllImages.append(cardItem);
 }
 
 document.onkeydown = (evt) => {

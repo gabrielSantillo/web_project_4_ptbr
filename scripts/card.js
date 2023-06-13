@@ -30,19 +30,19 @@ const popupCloseButton = document.querySelector(".image__container-close");
 const popupImage = document.querySelector(".image__container-photo");
 const popupCaption = document.querySelector(".image__container-name");
 
+
 export default class Card {
-  constructor(image, caption, cardSelector) {
+  constructor(image, caption, buttonLike, buttonDelete) {
     this._image = image;
     this._caption = caption;
-    this._cardSelector = cardSelector;
+    this._buttonLike = buttonLike;
+    this._buttonDelete = buttonDelete;
   }
 
   // probably I will have to switch an id for a class template
   _getTemplate() {
-    const cardElement = document
-      .querySelector(this._cardSelector)
-      .content.querySelector("#template")
-      .clodeNode(true);
+    const cardTemplate = document.querySelector("#template").content;
+    const cardElement = cardTemplate.querySelector(".post__card").cloneNode(true);
 
     return cardElement;
   }
@@ -51,8 +51,8 @@ export default class Card {
     this._element = this._getTemplate();
     this._setEventListeners();
 
-    this._element.querySelector(".image__container-photo").setAttribute("src", this._image);
-    this._element.querySelector(".image__container-name").textContent = this._caption;
+    this._element.querySelector(".post__card-image").setAttribute("src", this._image);
+    this._element.querySelector(".post__card-content-title").textContent = this._caption;
 
     return this._element;
   }
@@ -69,6 +69,13 @@ export default class Card {
     popupElement.classList.remove("popup-opened");
   }
 
+  _handleDeleteButton() {
+    const postCard = document.querySelectorAll(".post__card")
+    postCard.forEach((item) => {
+      item.remove();
+    })
+  }
+
   _setEventListeners() {
     this._element.addEventListener("click", () => {
       this._handleOpenPopup();
@@ -77,5 +84,9 @@ export default class Card {
     popupCloseButton.addEventListener("click", () => {
       this._handleClosePopup();
     });
+
+    this._buttonDelete.addEventListener("click", () => {
+      this._handleDeleteButton();
+    })
   }
 }
