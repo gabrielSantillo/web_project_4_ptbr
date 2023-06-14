@@ -1,5 +1,3 @@
-
-
 const closePopup = document.getElementById("close-button");
 const openPopup = document.querySelector("#edit-profile");
 
@@ -17,6 +15,7 @@ const closePopupPost = document.querySelector("#close-button-post");
 // function that will close the popup when clicked outside of them
 const popupClose = document.querySelectorAll(".close-popup");
 
+const savePostButton = document.querySelector("#save-button-post");
 
 document.onkeydown = (evt) => {
   if (evt.key === "Escape") {
@@ -32,7 +31,7 @@ function handleOpenPopup(evt) {
     popupAddPost.classList.add("popup-opened");
   } else if (evt.target.id === "edit-profile") {
     popupSection.classList.add("popup-opened");
-  } 
+  }
 }
 
 function handleClosePopup(evt) {
@@ -61,21 +60,6 @@ function handleSaveButton(evt) {
 
   handleClosePopup(evt);
 }
-
-// Closing a popup when clicking outside of it
-popupClose.forEach((container) => {
-  container.addEventListener("click", (evt) => {
-    evt.target.classList.remove("popup-opened");
-  });
-});
-
-openPopup.addEventListener("click", handleOpenPopup);
-closePopup.addEventListener("click", handleClosePopup);
-
-popupSaveButton.addEventListener("click", handleSaveButton);
-
-addPost.addEventListener("click", handleOpenPopup);
-closePopupPost.addEventListener("click", handleClosePopup);
 
 function renderPostCard(post) {
   const postTemplate = document.querySelector("#template").content;
@@ -119,3 +103,44 @@ function renderPostCard(post) {
   return postElement;
 }
 
+function handlePost(evt) {
+  evt.preventDefault();
+
+  const postTitle = document.querySelector("#post-title");
+  const postImageUrl = document.querySelector("#post-image-url");
+
+  if (postTitle === "" || postImageUrl === "") {
+    return alert("Por favor, preencha todos os campos");
+  }
+
+  // const card = new Card(postImageUrl.value, postTitle.value);
+  // const cardItem = card.generateCard();
+  // console.log(cardItem);
+  // cardElement.append(cardItem);
+
+  cardElement.prepend(
+    renderPostCard({
+      title: postTitle.value,
+      url: postImageUrl.value,
+    })
+  );
+
+  handleClosePopup(evt);
+}
+
+// Closing a popup when clicking outside of it
+popupClose.forEach((container) => {
+  container.addEventListener("click", (evt) => {
+    evt.target.classList.remove("popup-opened");
+  });
+});
+
+openPopup.addEventListener("click", handleOpenPopup);
+closePopup.addEventListener("click", handleClosePopup);
+
+popupSaveButton.addEventListener("click", handleSaveButton);
+
+addPost.addEventListener("click", handleOpenPopup);
+closePopupPost.addEventListener("click", handleClosePopup);
+
+savePostButton.addEventListener("click", handlePost);

@@ -30,7 +30,6 @@ const popupCloseButton = document.querySelector(".image__container-close");
 const popupImage = document.querySelector(".image__container-photo");
 const popupCaption = document.querySelector(".image__container-name");
 
-
 export default class Card {
   constructor(image, caption) {
     this._image = image;
@@ -40,7 +39,9 @@ export default class Card {
   // probably I will have to switch an id for a class template
   _getTemplate() {
     const cardTemplate = document.querySelector("#template").content;
-    const cardElement = cardTemplate.querySelector(".post__card").cloneNode(true);
+    const cardElement = cardTemplate
+      .querySelector(".post__card")
+      .cloneNode(true);
 
     return cardElement;
   }
@@ -49,8 +50,11 @@ export default class Card {
     this._element = this._getTemplate();
     this._setEventListeners();
 
-    this._element.querySelector(".post__card-image").setAttribute("src", this._image);
-    this._element.querySelector(".post__card-content-title").textContent = this._caption;
+    this._element
+      .querySelector(".post__card-image")
+      .setAttribute("src", this._image);
+    this._element.querySelector(".post__card-content-title").textContent =
+      this._caption;
 
     return this._element;
   }
@@ -76,21 +80,26 @@ export default class Card {
   }
 
   _setEventListeners() {
-    this._element.querySelector(".post__card-image").addEventListener("click", () => {
-      this._handleOpenPopup();
-    });
+    this._element
+      .querySelector(".post__card-image")
+      .addEventListener("click", () => {
+        this._handleOpenPopup();
+      });
 
     popupCloseButton.addEventListener("click", () => {
       this._handleClosePopup();
     });
 
-    this._element.querySelector(".post__card-remove").addEventListener("click", (evt) => {
-      this._handleDeleteButton(evt);
-    });
+    this._element
+      .querySelector(".post__card-remove")
+      .addEventListener("click", (evt) => {
+        this._handleDeleteButton(evt);
+      });
 
-    this._element.querySelector(".post__card-content-like").addEventListener("click", (evt) => {
-      this._handleLikeButton(evt);
-    });
-
+    this._element
+      .querySelector(".post__card-content-like")
+      .addEventListener("click", (evt) => {
+        this._handleLikeButton(evt);
+      });
   }
 }

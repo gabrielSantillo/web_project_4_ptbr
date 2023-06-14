@@ -1,8 +1,6 @@
 import Card from "./Card.js";
 import FormValidator from "./formValidator.js";
 
-const savePostButton = document.querySelector("#save-button-post");
-
 const images = [
   {
     title: "Vale de Yosemite",
@@ -44,36 +42,8 @@ formEditProfile.enableValidation();
 const formAddPost = new FormValidator("#form-add-post", listOfClasses);
 formAddPost.enableValidation();
 
-
 for (const image of images) {
   const card = new Card(image.url, image.title);
   const cardItem = card.generateCard();
   cardElement.append(cardItem);
 }
-
-function handlePost(evt) {
-  evt.preventDefault();
-
-  const postTitle = document.querySelector("#post-title");
-  const postImageUrl = document.querySelector("#post-image-url");
-
-  if (postTitle === "" || postImageUrl === "") {
-    return alert("Por favor, preencha todos os campos");
-  }
-
-  // const card = new Card(postImageUrl.value, postTitle.value);
-  // const cardItem = card.generateCard();
-  // console.log(cardItem);
-  // cardElement.append(cardItem);
-
-  cardElement.prepend(
-    renderPostCard({
-      title: postTitle.value,
-      url: postImageUrl.value,
-    })
-  );
-
-  handleClosePopup(evt);
-}
-
-savePostButton.addEventListener("click", handlePost);
