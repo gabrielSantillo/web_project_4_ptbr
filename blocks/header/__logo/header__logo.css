@@ -6,6 +6,16 @@
 
 @media screen and (min-width: 768px) {
     .header__logo {
-        display: none;
+        display: flex;
+        margin-top: 45px;
+        margin-bottom: 41px;
+        margin-left: 105px;
+    }
+}
+
+@media screen and (min-width: 1280px) { 
+    .header__logo {
+        justify-self: start;
+        margin-left: 199px;
     }
 }

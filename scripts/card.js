@@ -1,3 +1,8 @@
+const popupElement = document.querySelector(".image");
+const popupCloseButton = document.querySelector(".image__container-close");
+const popupImage = document.querySelector(".image__container-photo");
+const popupCaption = document.querySelector(".image__container-name");
+
 const images = [
   {
     title: "Vale de Yosemite",
@@ -24,11 +29,6 @@ const images = [
     url: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
   },
 ];
-
-const popupElement = document.querySelector(".image");
-const popupCloseButton = document.querySelector(".image__container-close");
-const popupImage = document.querySelector(".image__container-photo");
-const popupCaption = document.querySelector(".image__container-name");
 
 export default class Card {
   constructor(image, caption) {
@@ -76,7 +76,14 @@ export default class Card {
   }
 
   _handleLikeButton(evt) {
-    evt.target.setAttribute("src", "./images/post/post-like-filled.png");
+    if (
+      evt.target.src !==
+      "http://127.0.0.1:5500/images/post/post-like-filled.png"
+    ) {
+      evt.target.setAttribute("src", "./images/post/post-like-filled.png");
+    } else {
+      evt.target.setAttribute("src", "./images/post/post-like.png");
+    }
   }
 
   _setEventListeners() {
