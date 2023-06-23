@@ -4,7 +4,7 @@ export default class Popup {
   }
 
   open() {
-
+    
   }
 
   close() {
@@ -20,5 +20,5 @@ export default class Popup {
     }
   }
 
-  
+
 }
