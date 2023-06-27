@@ -113,11 +113,6 @@ function handlePost(evt) {
     return alert("Por favor, preencha todos os campos");
   }
 
-  // const card = new Card(postImageUrl.value, postTitle.value);
-  // const cardItem = card.generateCard();
-  // console.log(cardItem);
-  // cardElement.append(cardItem);
-
   cardElement.prepend(
     renderPostCard({
       title: postTitle.value,

@@ -1,11 +1,15 @@
-import Popup from './Popup.js';
+import Popup from './Popup';
 
 export default class PopupWithImage extends Popup {
-    constructor(popupSelector) {
-        super(popupSelector);
-    }
+  constructor(popupSelector) {
+    super(popupSelector);
+    this._imageElement = this._popup.querySelector('.image__container-photo');
+    this._captionElement = this._popup.querySelector('.image__container-name');
+  }
 
-    open() {
-        this._element = null // I need to get a template somehow here to add the img src and caption
-    }
+  open(imageUrl, caption) {
+    this._imageElement.src = imageUrl;
+    this._captionElement.textContent = caption;
+    super.open();
+  }
 }
