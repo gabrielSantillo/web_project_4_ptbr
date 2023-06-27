@@ -4,11 +4,11 @@ export default class Popup {
   }
 
   open() {
-    
+    this._popup.classList.add("popup-opened");
   }
 
   close() {
-
+    this._popup.classList.remove("popup-opened");
   }
 
   _handleEscClose() {
@@ -19,6 +19,4 @@ export default class Popup {
       });
     }
   }
-
-
 }

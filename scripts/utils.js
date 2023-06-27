@@ -6,7 +6,7 @@ const popupSaveButton = document.getElementById("save-button");
 const profileName = document.getElementById("profile-name");
 const profileAbout = document.getElementById("profile-about");
 
-const cardElement = document.querySelector(".post");
+export const cardElement = document.querySelector(".post");
 
 const addPost = document.querySelector("#add-post");
 const popupAddPost = document.querySelector("#popup-add-post");

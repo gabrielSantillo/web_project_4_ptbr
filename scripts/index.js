@@ -1,5 +1,7 @@
 import Card from "./Card.js";
 import FormValidator from "./formValidator.js";
+import { cardElement } from "./utils.js";
+import Section from "./Section.js";
 
 const images = [
   {
@@ -27,6 +29,17 @@ const images = [
     url: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
   },
 ];
+
+const cardList = new Section({
+  items: images,
+  renderer: (image) => {
+    const card = new Card(image.url, image.title);
+    const cardElement = card.generateCard();
+    cardList.setItem(cardElement);
+  }
+}, cardElement);
+
+cardList.renderItems();
 
 const listOfClasses = {
   fieldsetList: ".form__set",
