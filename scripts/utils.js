@@ -1,5 +1,5 @@
 const closePopup = document.getElementById("close-button");
-const openPopup = document.querySelector("#edit-profile");
+export const openPopup = document.querySelector("#edit-profile");
 
 const popupSection = document.querySelector("#popup");
 const popupSaveButton = document.getElementById("save-button");
@@ -8,7 +8,7 @@ const profileAbout = document.getElementById("profile-about");
 
 export const cardElement = document.querySelector(".post");
 
-const addPost = document.querySelector("#add-post");
+export const addPost = document.querySelector("#add-post");
 const popupAddPost = document.querySelector("#popup-add-post");
 const closePopupPost = document.querySelector("#close-button-post");
 
@@ -130,12 +130,12 @@ popupClose.forEach((container) => {
   });
 });
 
-openPopup.addEventListener("click", handleOpenPopup);
+// openPopup.addEventListener("click", handleOpenPopup);
 closePopup.addEventListener("click", handleClosePopup);
 
 popupSaveButton.addEventListener("click", handleSaveButton);
 
-addPost.addEventListener("click", handleOpenPopup);
+// addPost.addEventListener("click", handleOpenPopup);
 closePopupPost.addEventListener("click", handleClosePopup);
 
 savePostButton.addEventListener("click", handlePost);

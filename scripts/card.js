@@ -59,8 +59,6 @@ export default class Card {
     }
   }
 
-
-
   _setEventListeners() {
     this._element
       .querySelector(".post__card-image")

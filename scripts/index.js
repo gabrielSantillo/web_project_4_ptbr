@@ -4,6 +4,9 @@ import { cardElement } from "./utils.js";
 import Section from "./Section.js";
 
 import PopupWithImage from "./PopupWithImage.js";
+import PopupWithForm from "./PopupWithForm.js";
+
+import { addPost, openPopup } from './utils.js';
 
 const images = [
   {
@@ -32,6 +35,14 @@ const images = [
   },
 ];
 
+const listOfClasses = {
+  fieldsetList: ".form__set",
+  formInput: ".form__input",
+  submitButtonSelector: ".form__submit",
+  inactiveButtonClass: "button_inactive",
+  inputErrorClass: "popup__container-form-texts-",
+};
+
 const popupWithImage = new PopupWithImage('.image__container');
 
 const cardList = new Section({
@@ -45,19 +56,33 @@ const cardList = new Section({
 
 cardList.renderItems();
 
-const listOfClasses = {
-  fieldsetList: ".form__set",
-  formInput: ".form__input",
-  submitButtonSelector: ".form__submit",
-  inactiveButtonClass: "button_inactive",
-  inputErrorClass: "popup__container-form-texts-",
-};
-
 const formEditProfile = new FormValidator("#form-edit-profile", listOfClasses);
 formEditProfile.enableValidation();
 
 const formAddPost = new FormValidator("#form-add-post", listOfClasses);
 formAddPost.enableValidation();
+
+
+const handleFormSubmit = (formAddPost) => {
+  console.log(formAddPost)
+}
+
+const popupWithFormPost = new PopupWithForm('.post__container', handleFormSubmit);
+popupWithFormPost.setEventListeners();
+
+addPost.addEventListener('click', () => {
+  popupWithFormPost.open()
+})
+
+
+const popupWithFormEdit = new PopupWithForm('.edit__container', handleFormSubmit);
+popupWithFormEdit.setEventListeners();
+
+openPopup.addEventListener('click', () => {
+  popupWithFormEdit.open();
+})
+
+
 
 // for (const image of images) {
 //   const card = new Card(image.url, image.title);
