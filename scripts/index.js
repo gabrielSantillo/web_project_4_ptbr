@@ -3,6 +3,8 @@ import FormValidator from "./formValidator.js";
 import { cardElement } from "./utils.js";
 import Section from "./Section.js";
 
+import PopupWithImage from "./PopupWithImage.js";
+
 const images = [
   {
     title: "Vale de Yosemite",
@@ -30,10 +32,12 @@ const images = [
   },
 ];
 
+const popupWithImage = new PopupWithImage('.image__container');
+
 const cardList = new Section({
   items: images,
   renderer: (image) => {
-    const card = new Card(image.url, image.title);
+    const card = new Card(image.url, image.title, popupWithImage);
     const cardElement = card.generateCard();
     cardList.setItem(cardElement);
   }
@@ -55,8 +59,8 @@ formEditProfile.enableValidation();
 const formAddPost = new FormValidator("#form-add-post", listOfClasses);
 formAddPost.enableValidation();
 
-for (const image of images) {
-  const card = new Card(image.url, image.title);
-  const cardItem = card.generateCard();
-  cardElement.append(cardItem);
-}
+// for (const image of images) {
+//   const card = new Card(image.url, image.title);
+//   const cardItem = card.generateCard();
+//   cardElement.append(cardItem);
+// }

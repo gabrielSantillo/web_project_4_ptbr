@@ -1,39 +1,12 @@
 const popupElement = document.querySelector(".image");
-const popupCloseButton = document.querySelector(".image__container-close");
 const popupImage = document.querySelector(".image__container-photo");
 const popupCaption = document.querySelector(".image__container-name");
 
-const images = [
-  {
-    title: "Vale de Yosemite",
-    url: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
-  },
-  {
-    title: "Lago Louise",
-    url: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
-  },
-  {
-    title: "Montanhas Carecas",
-    url: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
-  },
-  {
-    title: "Latemar",
-    url: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
-  },
-  {
-    title: "Parque Nacional da Vanoise ",
-    url: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
-  },
-  {
-    title: "Lago di Braies",
-    url: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
-  },
-];
-
 export default class Card {
-  constructor(image, caption) {
+  constructor(image, caption, popup) {
     this._image = image;
     this._caption = caption;
+    this._popup = popup;
   }
 
   // probably I will have to switch an id for a class template
@@ -86,16 +59,14 @@ export default class Card {
     }
   }
 
+
+
   _setEventListeners() {
     this._element
       .querySelector(".post__card-image")
       .addEventListener("click", () => {
-        this._handleOpenPopup();
+        this._popup.open(this._image, this._caption)
       });
-
-    popupCloseButton.addEventListener("click", () => {
-      this._handleClosePopup();
-    });
 
     this._element
       .querySelector(".post__card-remove")
