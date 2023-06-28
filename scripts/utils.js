@@ -17,33 +17,59 @@ const popupClose = document.querySelectorAll(".close-popup");
 
 const savePostButton = document.querySelector("#save-button-post");
 
-document.onkeydown = (evt) => {
-  if (evt.key === "Escape") {
-    const popup = Array.from(document.querySelectorAll(".popup"));
-    popup.forEach((element) => {
-      element.classList.remove("popup-opened");
-    });
-  }
+export const listOfClasses = {
+  fieldsetList: ".form__set",
+  formInput: ".form__input",
+  submitButtonSelector: ".form__submit",
+  inactiveButtonClass: "button_inactive",
+  inputErrorClass: "popup__container-form-texts-",
 };
 
-function handleOpenPopup(evt) {
-  if (evt.target.id === "add-post") {
-    popupAddPost.classList.add("popup-opened");
-  } else if (evt.target.id === "edit-profile") {
-    popupSection.classList.add("popup-opened");
-  }
-}
+export const images = [
+  {
+    title: "Vale de Yosemite",
+    url: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg",
+  },
+  {
+    title: "Lago Louise",
+    url: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lake-louise.jpg",
+  },
+  {
+    title: "Montanhas Carecas",
+    url: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_bald-mountains.jpg",
+  },
+  {
+    title: "Latemar",
+    url: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_latemar.jpg",
+  },
+  {
+    title: "Parque Nacional da Vanoise ",
+    url: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_vanoise.jpg",
+  },
+  {
+    title: "Lago di Braies",
+    url: "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_lago.jpg",
+  },
+];
 
-function handleClosePopup(evt) {
-  if (
-    evt.target.id === "close-button-post" ||
-    evt.target.id === "save-button-post"
-  ) {
-    popupAddPost.classList.remove("popup-opened");
-  } else {
-    popupSection.classList.remove("popup-opened");
-  }
-}
+// function handleOpenPopup(evt) {
+//   if (evt.target.id === "add-post") {
+//     popupAddPost.classList.add("popup-opened");
+//   } else if (evt.target.id === "edit-profile") {
+//     popupSection.classList.add("popup-opened");
+//   }
+// }
+
+// function handleClosePopup(evt) {
+//   if (
+//     evt.target.id === "close-button-post" ||
+//     evt.target.id === "save-button-post"
+//   ) {
+//     popupAddPost.classList.remove("popup-opened");
+//   } else {
+//     popupSection.classList.remove("popup-opened");
+//   }
+// }
 
 function handleSaveButton(evt) {
   evt.preventDefault();
@@ -61,47 +87,47 @@ function handleSaveButton(evt) {
   handleClosePopup(evt);
 }
 
-function renderPostCard(post) {
-  const postTemplate = document.querySelector("#template").content;
-  const postElement = postTemplate.querySelector(".post__card").cloneNode(true);
+// function renderPostCard(post) {
+//   const postTemplate = document.querySelector("#template").content;
+//   const postElement = postTemplate.querySelector(".post__card").cloneNode(true);
 
-  postElement.querySelector(".post__card-image").setAttribute("src", post.url);
-  postElement
-    .querySelector(".post__card-image")
-    .setAttribute("alt", `Imagem de ${post.title}`);
-  postElement.querySelector(".post__card-content-title").textContent =
-    post.title;
+//   postElement.querySelector(".post__card-image").setAttribute("src", post.url);
+//   postElement
+//     .querySelector(".post__card-image")
+//     .setAttribute("alt", `Imagem de ${post.title}`);
+//   postElement.querySelector(".post__card-content-title").textContent =
+//     post.title;
 
-  postElement
-    .querySelector(".post__card-content-like")
-    .addEventListener("click", (evt) => {
-      evt.target.setAttribute("src", "./images/post/post-like-filled.png");
-    });
+//   postElement
+//     .querySelector(".post__card-content-like")
+//     .addEventListener("click", (evt) => {
+//       evt.target.setAttribute("src", "./images/post/post-like-filled.png");
+//     });
 
-  postElement
-    .querySelector(".post__card-remove")
-    .addEventListener("click", (evt) => {
-      evt.target.parentElement.remove();
-    });
+//   postElement
+//     .querySelector(".post__card-remove")
+//     .addEventListener("click", (evt) => {
+//       evt.target.parentElement.remove();
+//     });
 
-  /* FUNCTION TO OPEN THE POPUP IMAGE */
-  postElement
-    .querySelector(".post__card-image")
-    .addEventListener("click", (evt) => {
-      const postImageTitleContent =
-        evt.target.nextElementSibling.nextElementSibling;
-      const postImage = document.querySelector(".image__container-photo");
-      const postImageTitle = document.querySelector(".image__container-name");
+//   /* FUNCTION TO OPEN THE POPUP IMAGE */
+//   postElement
+//     .querySelector(".post__card-image")
+//     .addEventListener("click", (evt) => {
+//       const postImageTitleContent =
+//         evt.target.nextElementSibling.nextElementSibling;
+//       const postImage = document.querySelector(".image__container-photo");
+//       const postImageTitle = document.querySelector(".image__container-name");
 
-      postImage.setAttribute("src", evt.target.src);
-      postImage.setAttribute("alt", `Foto do ${evt.target.src}`);
-      postImageTitle.textContent = postImageTitleContent.textContent;
+//       postImage.setAttribute("src", evt.target.src);
+//       postImage.setAttribute("alt", `Foto do ${evt.target.src}`);
+//       postImageTitle.textContent = postImageTitleContent.textContent;
 
-      handleOpenPopup(evt);
-    });
+//       handleOpenPopup(evt);
+//     });
 
-  return postElement;
-}
+//   return postElement;
+// }
 
 function handlePost(evt) {
   evt.preventDefault();
@@ -123,19 +149,30 @@ function handlePost(evt) {
   handleClosePopup(evt);
 }
 
+// document.onkeydown = (evt) => {
+//   if (evt.key === "Escape") {
+//     const popup = Array.from(document.querySelectorAll(".popup"));
+//     popup.forEach((element) => {
+//       element.classList.remove("popup-opened");
+//     });
+//   }
+// };
+
 // Closing a popup when clicking outside of it
-popupClose.forEach((container) => {
-  container.addEventListener("click", (evt) => {
-    evt.target.classList.remove("popup-opened");
-  });
-});
+// popupClose.forEach((container) => {
+//   container.addEventListener("click", (evt) => {
+//     evt.target.classList.remove("popup-opened");
+//   });
+// });
 
 // openPopup.addEventListener("click", handleOpenPopup);
-closePopup.addEventListener("click", handleClosePopup);
+// closePopup.addEventListener("click", handleClosePopup);
 
 popupSaveButton.addEventListener("click", handleSaveButton);
 
 // addPost.addEventListener("click", handleOpenPopup);
-closePopupPost.addEventListener("click", handleClosePopup);
+// closePopupPost.addEventListener("click", handleClosePopup);
 
 savePostButton.addEventListener("click", handlePost);
+
+
