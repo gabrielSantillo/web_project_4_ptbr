@@ -70,3 +70,12 @@ function handleSaveButton(evt) {
 
 popupSaveButton.addEventListener('click', handleSaveButton);
 
+savePostButton.addEventListener('click', () => {
+  const url = document.querySelector("#post-image-url").value;
+  const title = document.querySelector("#post-title").value;
+  const newCard = new Card(url, title, popupWithImage);
+  const newCardElement = newCard.generateCard();
+  console.log(newCardElement);
+  cardList.addNewItem(newCardElement);
+  popupWithFormPost.close();
+})
