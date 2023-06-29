@@ -32,7 +32,7 @@ const handleFormSubmit = (formAddPost) => {
   console.log(formAddPost)
 }
 
-const popupWithFormPost = new PopupWithForm('.post__container', handleFormSubmit);
+const popupWithFormPost = new PopupWithForm('.post-container', handleFormSubmit);
 popupWithFormPost.setEventListeners();
 
 addPost.addEventListener('click', () => {
@@ -40,7 +40,7 @@ addPost.addEventListener('click', () => {
 })
 
 
-const popupWithFormEdit = new PopupWithForm('.edit__container', handleFormSubmit);
+const popupWithFormEdit = new PopupWithForm('.edit-container', handleFormSubmit);
 popupWithFormEdit.setEventListeners();
 
 openPopup.addEventListener('click', () => {
