@@ -10,7 +10,7 @@ export default class Section {
   }
 
   addNewItem(element) {
-    this._container.insertAdjacentElement('afterbegin', element);
+    this._container.prepend( element);
   }
 
   clear() {
