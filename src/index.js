@@ -1,12 +1,12 @@
-import Card from "./scripts/card.js";
-import FormValidator from "./scripts/formValidator.js";
-import Section from "./scripts/Section.js";
-import PopupWithImage from "./scripts/PopupWithImage.js";
-import PopupWithForm from "./scripts/PopupWithForm.js";
-import UserInfo from "./scripts/UserInfo.js";
-import { cardElement, addPost, openPopup, listOfClasses, images, popupSaveButton, savePostButton } from './scripts/utils.js';
+import Card from "./components/Card.js";
+import FormValidator from "./components/formValidator.js";
+import Section from "./components/Section.js";
+import PopupWithImage from "./components/PopupWithImage.js";
+import PopupWithForm from "./components/PopupWithForm.js";
+import UserInfo from "./components/UserInfo.js";
+import { cardElement, addPost, openPopup, listOfClasses, images, popupSaveButton, savePostButton } from './utils/utils.js';
 
-import './pages/index.css'
+import './pages/index.css';
 
 const popupWithImage = new PopupWithImage('.image__container');
 

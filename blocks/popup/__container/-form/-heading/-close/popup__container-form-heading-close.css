@@ -1,9 +1,0 @@
-.popup__container-form-heading-close {
-    transform: translate(20px, -70px);
-    cursor: pointer;
-}
-
-.popup__container-form-heading-close:hover {
-    transition: .4s;
-    opacity: 60%;
-}
