@@ -1,0 +1,10 @@
+.header__line-long{
+    display: none;
+}
+
+@media screen and (min-width: 1280px) {
+    .header__line-long {
+        display: flex;
+        justify-self: center;
+    }
+}

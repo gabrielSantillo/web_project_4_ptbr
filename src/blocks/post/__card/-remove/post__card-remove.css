@@ -1,0 +1,12 @@
+.post__card-remove {
+    z-index: 2;
+    position: absolute;
+    top: 18px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.post__card-remove:hover {
+    transition: .4s;
+    opacity: 50%;
+}

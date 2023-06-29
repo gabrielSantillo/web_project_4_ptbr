@@ -1,0 +1,13 @@
+.page {
+    /* here we've set a maximum page width */
+    margin: 0 auto;
+    /* this ensures that all content is centered on screens wider than 1600px */
+    font-family: Arial, sans-serif;
+    color: #fff;
+    max-width: 1280px;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }

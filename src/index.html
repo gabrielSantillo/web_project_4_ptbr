@@ -12,17 +12,17 @@
       <header class="header">
         <img
           class="header__logo"
-          src="./images/header/header-logo.png"
+          src="<%=require('./images/header/header-logo.png')%>"
           alt="Imagem do logo"
         />
 
         <img
-          src="./images/header/header-line.png"
+          src="<%=require('./images/header/header-line.png')%>"
           alt="Imagem de uma linha fina"
           class="header__line"
         />
         <img
-          src="./images/header/header-line-long.png"
+          src="<%=require('./images/header/header-line-long.png')%>"
           alt="Imagem de uma linha fina"
           class="header__line-long"
         />
@@ -32,7 +32,7 @@
         <section class="profile">
           <div>
             <img
-              src="./images/profile/profile-image.png"
+              src="<%=require('./images/profile/profile-image.png')%>"
               alt="Imagem da foto do perfil"
               class="profile__image"
             />
@@ -43,7 +43,7 @@
                 </h1>
                 <button class="profile__info-content-edit" id="edit-profile">
                   <img
-                    src="./images/profile/profile-edit-pencil.png"
+                    src="<%=require('./images/profile/profile-edit-pencil.png')%>"
                     alt="Imagem de um lápis para representar o botão de editar"
                   />
                 </button>
@@ -55,7 +55,7 @@
           </div>
 
           <button class="profile__add" id="add-post">
-            <img src="./images/profile/profile-add.png" alt="" />
+            <img src="<%=require('./images/profile/profile-add.png')%>" alt="" />
           </button>
         </section>
 
@@ -71,7 +71,7 @@
                   Editar Perfil
                 </h2>
                 <img
-                  src="./images/popup/popup-close.png"
+                  src="<%=require('./images/popup/popup-close.png')%>"
                   alt=""
                   class="popup__container-form-heading-close close-icon"
                   id="close-button"
@@ -118,7 +118,7 @@
               <div class="popup__container-form-heading">
                 <h2 class="popup__container-form-heading-title">Novo Lugar</h2>
                 <img
-                  src="./images/popup/popup-close.png"
+                  src="<%=require('./images/popup/popup-close.png')%>"
                   alt=""
                   class="popup__container-form-heading-close close-icon"
                   id="close-button-post"
@@ -160,7 +160,7 @@
         <section class="popup image close-popup">
           <div class="image__container">
             <img
-              src="./images/popup/popup-close.png"
+              src="<%=require('./images/popup/popup-close.png')%>"
               alt=""
               class="image__container-close close-icon"
             />
@@ -174,7 +174,7 @@
         <div class="post__card">
           <img src="." alt="" class="post__card-image" />
           <img
-            src="./images/post/post-remove.png"
+            src="<%=require('./images/post/post-remove.png')%>"
             alt=""
             class="post__card-remove"
             id="remove-button"
@@ -182,7 +182,7 @@
           <div class="post__card-content">
             <h2 class="post__card-content-title"></h2>
             <img
-              src="./images/post/post-like.png"
+              src="<%=require('./images/post/post-like.png')%>"
               alt="Imagem de um coração"
               class="post__card-content-like"
             />

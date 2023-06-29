@@ -1,0 +1,13 @@
+.post__card-content-like {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.post__card-content-like:hover {
+    transition: .4s;
+    opacity: 50%;
+}
+
+.post__card-content-like:active {
+    fill: #000;
+}

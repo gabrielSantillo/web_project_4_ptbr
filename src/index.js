@@ -1,10 +1,12 @@
-import Card from "./Card.js";
-import FormValidator from "./formValidator.js";
-import Section from "./Section.js";
-import PopupWithImage from "./PopupWithImage.js";
-import PopupWithForm from "./PopupWithForm.js";
-import UserInfo from "./UserInfo.js";
-import { cardElement, addPost, openPopup, listOfClasses, images, popupSaveButton, savePostButton } from './utils.js';
+import Card from "./scripts/card.js";
+import FormValidator from "./scripts/formValidator.js";
+import Section from "./scripts/Section.js";
+import PopupWithImage from "./scripts/PopupWithImage.js";
+import PopupWithForm from "./scripts/PopupWithForm.js";
+import UserInfo from "./scripts/UserInfo.js";
+import { cardElement, addPost, openPopup, listOfClasses, images, popupSaveButton, savePostButton } from './scripts/utils.js';
+
+import './pages/index.css'
 
 const popupWithImage = new PopupWithImage('.image__container');
 

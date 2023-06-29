@@ -47,13 +47,14 @@ export default class Card {
   }
 
   _handleLikeButton(evt) {
+
     if (
       evt.target.src !==
       "http://127.0.0.1:5500/images/post/post-like-filled.png"
     ) {
-      evt.target.setAttribute("src", "./images/post/post-like-filled.png");
+      evt.target.setAttribute("src", "<%=require('./images/post/post-like-filled.png')%>");
     } else {
-      evt.target.setAttribute("src", "./images/post/post-like.png");
+      evt.target.setAttribute("src", "<%=require('./images/post/post-like.png')%>");
     }
   }
 

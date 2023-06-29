@@ -1,0 +1,11 @@
+.profile__info-content-edit {
+    background-color: #000;
+    border: none;
+    border: 1px solid #fff;
+    cursor: pointer;
+}
+
+.profile__info-content-edit:hover {
+    transition: .4s;
+    opacity: 60%;
+}

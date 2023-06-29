@@ -1,0 +1,30 @@
+.image__container {
+    width: 240px;
+    height: 299px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -149.5px;  /* Negative half of height. */
+    margin-left: -120px;  /* Negative half of width. */
+
+    
+}
+
+@media screen and (min-width: 768px) { 
+    .image__container {
+        height: 420px;
+        width: 320px;
+        margin-top: -210px;  /* Negative half of height. */
+        margin-left: -160px;
+    }
+}
+
+
+@media screen and (min-width: 1280px) { 
+    .image__container {
+        height: 540px;
+        width: 400px;
+        margin-top: -270px;  /* Negative half of height. */
+        margin-left: -200px;
+    }
+}

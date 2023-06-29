@@ -1,0 +1,31 @@
+.popup__container {
+    width: 240px;
+    height: 350px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -141px;
+    
+    padding: 25px 22px;
+    background-color: #FFF;
+    color: #000;
+    border-radius: 10px;
+
+}
+
+@media screen and (min-width: 768px) {
+    .popup__container {
+        width: 280px;
+        height: 350px;
+        margin-top: -175px;
+        margin-left: -140px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .popup__container {
+        width: 430px;
+        margin-left: -215px;
+    }
+}
