@@ -6,7 +6,9 @@ import Section from "./Section.js";
 import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
 
-import { addPost, openPopup, listOfClasses, images } from './utils.js';
+import UserInfo from "./UserInfo.js";
+
+import { addPost, openPopup, listOfClasses, images, handleClosePopup, popupSaveButton, savePostButton } from './utils.js';
 
 const popupWithImage = new PopupWithImage('.image__container');
 
@@ -46,3 +48,25 @@ popupWithFormEdit.setEventListeners();
 openPopup.addEventListener('click', () => {
   popupWithFormEdit.open();
 })
+
+const userInfo = new UserInfo({
+  nameSelector: '#profile-name',
+  jobSelector: '#profile-about'
+});
+
+function handleSaveButton(evt) {
+  evt.preventDefault();
+
+  const name = document.getElementById("name");
+  const about = document.getElementById("about");
+
+  userInfo.setUserInfo({
+    name: name.value,
+    job: about.value
+  });
+
+  handleClosePopup(evt);
+}
+
+popupSaveButton.addEventListener('click', handleSaveButton);
+

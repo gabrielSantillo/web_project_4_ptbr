@@ -1,21 +1,16 @@
-const closePopup = document.getElementById("close-button");
 export const openPopup = document.querySelector("#edit-profile");
-
 const popupSection = document.querySelector("#popup");
-const popupSaveButton = document.getElementById("save-button");
-const profileName = document.getElementById("profile-name");
-const profileAbout = document.getElementById("profile-about");
-
+export const popupSaveButton = document.getElementById("save-button");
+export const profileName = document.getElementById("profile-name");
+export const profileAbout = document.getElementById("profile-about");
 export const cardElement = document.querySelector(".post");
-
 export const addPost = document.querySelector("#add-post");
 const popupAddPost = document.querySelector("#popup-add-post");
-const closePopupPost = document.querySelector("#close-button-post");
 
 // function that will close the popup when clicked outside of them
 const popupClose = document.querySelectorAll(".close-popup");
 
-const savePostButton = document.querySelector("#save-button-post");
+export const savePostButton = document.querySelector("#save-button-post");
 
 export const listOfClasses = {
   fieldsetList: ".form__set",
@@ -71,63 +66,74 @@ export const images = [
 //   }
 // }
 
-function handleSaveButton(evt) {
-  evt.preventDefault();
+// function handleSaveButton(evt) {
+//   evt.preventDefault();
 
-  const name = document.getElementById("name");
-  const about = document.getElementById("about");
+//   const name = document.getElementById("name");
+//   const about = document.getElementById("about");
 
-  if (!name.value || !about.value) {
-    return alert("Please, complete the entire form before saving.");
+//   if (!name.value || !about.value) {
+//     return alert("Please, complete the entire form before saving.");
+//   }
+
+//   profileName.textContent = name.value;
+//   profileAbout.textContent = about.value;
+
+//   handleClosePopup(evt);
+// }
+
+export function handleClosePopup(evt) {
+  if (
+    evt.target.id === "close-button-post" ||
+    evt.target.id === "save-button-post"
+  ) {
+    popupAddPost.classList.remove("popup-opened");
+  } else {
+    popupSection.classList.remove("popup-opened");
   }
-
-  profileName.textContent = name.value;
-  profileAbout.textContent = about.value;
-
-  handleClosePopup(evt);
 }
 
-// function renderPostCard(post) {
-//   const postTemplate = document.querySelector("#template").content;
-//   const postElement = postTemplate.querySelector(".post__card").cloneNode(true);
+function renderPostCard(post) {
+  const postTemplate = document.querySelector("#template").content;
+  const postElement = postTemplate.querySelector(".post__card").cloneNode(true);
 
-//   postElement.querySelector(".post__card-image").setAttribute("src", post.url);
-//   postElement
-//     .querySelector(".post__card-image")
-//     .setAttribute("alt", `Imagem de ${post.title}`);
-//   postElement.querySelector(".post__card-content-title").textContent =
-//     post.title;
+  postElement.querySelector(".post__card-image").setAttribute("src", post.url);
+  postElement
+    .querySelector(".post__card-image")
+    .setAttribute("alt", `Imagem de ${post.title}`);
+  postElement.querySelector(".post__card-content-title").textContent =
+    post.title;
 
-//   postElement
-//     .querySelector(".post__card-content-like")
-//     .addEventListener("click", (evt) => {
-//       evt.target.setAttribute("src", "./images/post/post-like-filled.png");
-//     });
+  postElement
+    .querySelector(".post__card-content-like")
+    .addEventListener("click", (evt) => {
+      evt.target.setAttribute("src", "./images/post/post-like-filled.png");
+    });
 
-//   postElement
-//     .querySelector(".post__card-remove")
-//     .addEventListener("click", (evt) => {
-//       evt.target.parentElement.remove();
-//     });
+  postElement
+    .querySelector(".post__card-remove")
+    .addEventListener("click", (evt) => {
+      evt.target.parentElement.remove();
+    });
 
-//   /* FUNCTION TO OPEN THE POPUP IMAGE */
-//   postElement
-//     .querySelector(".post__card-image")
-//     .addEventListener("click", (evt) => {
-//       const postImageTitleContent =
-//         evt.target.nextElementSibling.nextElementSibling;
-//       const postImage = document.querySelector(".image__container-photo");
-//       const postImageTitle = document.querySelector(".image__container-name");
+  /* FUNCTION TO OPEN THE POPUP IMAGE */
+  postElement
+    .querySelector(".post__card-image")
+    .addEventListener("click", (evt) => {
+      const postImageTitleContent =
+        evt.target.nextElementSibling.nextElementSibling;
+      const postImage = document.querySelector(".image__container-photo");
+      const postImageTitle = document.querySelector(".image__container-name");
 
-//       postImage.setAttribute("src", evt.target.src);
-//       postImage.setAttribute("alt", `Foto do ${evt.target.src}`);
-//       postImageTitle.textContent = postImageTitleContent.textContent;
+      postImage.setAttribute("src", evt.target.src);
+      postImage.setAttribute("alt", `Foto do ${evt.target.src}`);
+      postImageTitle.textContent = postImageTitleContent.textContent;
 
-//       handleOpenPopup(evt);
-//     });
+      handleOpenPopup(evt);
+    });
 
-//   return postElement;
-// }
+  return postElement;
+}
 
 function handlePost(evt) {
   evt.preventDefault();
@@ -168,11 +174,9 @@ function handlePost(evt) {
 // openPopup.addEventListener("click", handleOpenPopup);
 // closePopup.addEventListener("click", handleClosePopup);
 
-popupSaveButton.addEventListener("click", handleSaveButton);
+// popupSaveButton.addEventListener("click", handleSaveButton);
 
 // addPost.addEventListener("click", handleOpenPopup);
 // closePopupPost.addEventListener("click", handleClosePopup);
 
 savePostButton.addEventListener("click", handlePost);
-
-
