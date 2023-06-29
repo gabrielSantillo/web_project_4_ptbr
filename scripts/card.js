@@ -1,6 +1,4 @@
-const popupElement = document.querySelector(".image");
-const popupImage = document.querySelector(".image__container-photo");
-const popupCaption = document.querySelector(".image__container-name");
+import { popupElement, popupImage, popupCaption } from "./utils.js";
 
 export default class Card {
   constructor(image, caption, popup) {

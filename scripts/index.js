@@ -1,14 +1,10 @@
 import Card from "./Card.js";
 import FormValidator from "./formValidator.js";
-import { cardElement } from "./utils.js";
 import Section from "./Section.js";
-
 import PopupWithImage from "./PopupWithImage.js";
 import PopupWithForm from "./PopupWithForm.js";
-
 import UserInfo from "./UserInfo.js";
-
-import { addPost, openPopup, listOfClasses, images, handleClosePopup, popupSaveButton, savePostButton } from './utils.js';
+import { cardElement, addPost, openPopup, listOfClasses, images, popupSaveButton, savePostButton } from './utils.js';
 
 const popupWithImage = new PopupWithImage('.image__container');
 
@@ -65,7 +61,7 @@ function handleSaveButton(evt) {
     job: about.value
   });
 
-  handleClosePopup(evt);
+  popupWithFormEdit.close();
 }
 
 popupSaveButton.addEventListener('click', handleSaveButton);
