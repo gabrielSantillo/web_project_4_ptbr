@@ -1,5 +1,5 @@
 import Card from "./components/Card.js";
-import FormValidator from "./components/formValidator.js";
+import FormValidator from "./components/FormValidator.js";
 import Section from "./components/Section.js";
 import PopupWithImage from "./components/PopupWithImage.js";
 import PopupWithForm from "./components/PopupWithForm.js";
@@ -29,7 +29,7 @@ formAddPost.enableValidation();
 
 
 const handleFormSubmit = (formAddPost) => {
-  console.log(formAddPost)
+  formAddPost;
 }
 
 const popupWithFormPost = new PopupWithForm('.post-container', handleFormSubmit);
@@ -73,7 +73,6 @@ savePostButton.addEventListener('click', () => {
   const title = document.querySelector("#post-title").value;
   const newCard = new Card(url, title, popupWithImage);
   const newCardElement = newCard.generateCard();
-  console.log(newCardElement);
   cardList.addNewItem(newCardElement);
   popupWithFormPost.close();
 })

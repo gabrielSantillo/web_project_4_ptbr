@@ -66,6 +66,5 @@ export default class FormValidator {
         this._toggleButtonState(this._input, buttonElement);
       });
     });
-    console.log(this);
   }
 }

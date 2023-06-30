@@ -21,9 +21,8 @@ export default class Card {
     this._element = this._getTemplate();
     this._setEventListeners();
 
-    this._element
-      .querySelector(".post__card-image")
-      .setAttribute("src", this._image);
+    this._element.querySelector(".post__card-image").setAttribute("src", this._image);
+    this._element.querySelector(".post__card-image").setAttribute("alt", this._caption);
     this._element.querySelector(".post__card-content-title").textContent =
       this._caption;
 
