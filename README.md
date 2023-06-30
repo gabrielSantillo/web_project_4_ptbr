@@ -1,31 +1,31 @@
-# Projeto 4:  EUA Afora
+# Project 4: Across the USA
 
-### Visão geral
+### Overview
 
 * Figma
-* Imagens
+* Images
 
-**Link para o site**
+**Website link**
 
-* [Link para o projeto](https://gabrielsantillo.github.io/web_project_4_ptbr/)
+* [Project link](https://gabrielsantillo.github.io/web_project_4_ptbr/)
 
 **Figma**
 
-* [Link para o projeto no Figma](https://www.figma.com/file/XfB6BSINvliub43JgKza1e/WEB.-Sprint-4.-Around-The-U.S.-desktop-%2B-mobile-pt)
+* [Figma link](https://www.figma.com/file/XfB6BSINvliub43JgKza1e/WEB.-Sprint-4.-Around-The-U.S.-desktop-%2B-mobile-pt)
 
-**Imagens**
+**Images**
 
-A maneira como fiz no trabalho foi exportando imagens diretamente do Figma. Otimizei minhas imagens[aqui](https://tinypng.com/), para que meu projeto carregue mais rápido.
+In this project, I exported images directly from Figma. I optimized my images here to make my project load faster.
 
 
-**Descrição**
+**Description**
 
-Esse trabalho consiste em uma página blog onde o usuário pode alterar seu nome e sua descrição e também pode adicionar fotos pessoais dos lugares onde viajou.
+This project consists of a blog page where the user can change their name and description, as well as add personal photos of the places they have traveled to.
 
-**Funcionalidades**
+**Features**
 
-Nesse projeto é possível editar o seu perfil, adicionar fotos de viagens, curti-las e remove-las. Nos formulários foi utilizado uma validação moderna e "user friendly" onde o usuário recebe um feedback instantâneo enquanto preenche as informações que deseja adicionar ao seu blog. Isso facilita a interação dele com a página, uma vez que sempre que está digitando algo que não é o esperado pelo formulário, ele recebe uma mensagem de erro embaixo do inputs e, quando digita ao esperado, o input altera sua cor e o botão passa a ficar ativo que o usuário possa adicionar um post ou editar seu perfil.
+In this project, users can edit their profile, add travel photos, like them, and remove them. Modern and user-friendly form validation was implemented, where the user receives instant feedback while filling in the information they want to add to their blog. This facilitates user interaction with the page, as whenever they enter something that is not expected by the form, they receive an error message below the inputs. When they enter the expected input, the input field changes its color and the button becomes active, allowing the user to add a post or edit their profile.
 
-**Tecnologia utilizada**
+**Technology Used**
 
-Foi utilizado no desenvolvimento desse projeto a linguagem de marcação HTML5. Como linguagem de estilos, foi utilizado CSS onde foi optado pela organização das classes, pastas e arquivos a metodologia BEM. E por fim, como linguagem para a interação e reatividade da página, utilizamos Vanilla JavaScript.
+This project was developed using HTML5 as the markup language. CSS was used as the styling language, and the BEM methodology was chosen for organizing classes, folders, and files. Lastly, Vanilla JavaScript was used as the language for page interactivity and responsiveness.
