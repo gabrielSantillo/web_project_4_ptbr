@@ -11,6 +11,8 @@ export const popupImage = document.querySelector(".image__container-photo");
 export const popupCaption = document.querySelector(".image__container-name");
 export const savePostButton = document.querySelector("#save-button-post");
 
+export const userInfo = "";
+
 export const listOfClasses = {
   fieldsetList: ".form__set",
   formInput: ".form__input",
