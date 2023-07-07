@@ -13,27 +13,45 @@ import {
   popupSaveButton,
   savePostButton,
   formUserName,
-  formUserAbout
+  formUserAbout,
 } from "./utils/utils.js";
 import Api from "./components/Api.js";
 
 import "./pages/index.css";
 
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/web_ptbr_05/",
+  headers: {
+    authorization: "1c87feaf-7ea2-4dd9-b0cc-b4816af3e289",
+    "Content-Type": "application/json",
+  },
+});
+
 const popupWithImage = new PopupWithImage(".image__container");
 
-const cardList = new Section(
-  {
-    items: images,
-    renderer: (image) => {
-      const card = new Card(image.url, image.title, popupWithImage);
-      const cardElement = card.generateCard();
-      cardList.setItem(cardElement);
-    },
-  },
-  cardElement
-);
+api
+  .getInitialCards("cards")
+  .then((data) => {
+    console.log(data);
+    const cardList = new Section(
+      {
+        items: data,
+        renderer: (image) => {
+          const card = new Card(image.link, image.name, popupWithImage);
+          const cardElement = card.generateCard();
+          cardList.setItem(cardElement);
+        },
+      },
+      cardElement
+    );
+    
+    cardList.renderItems();
+  })
+  .catch((error) => {
+    console.error("Error getting the cards info:", error);
+  });
 
-cardList.renderItems();
+
 
 const formEditProfile = new FormValidator("#form-edit-profile", listOfClasses);
 formEditProfile.enableValidation();
@@ -66,24 +84,6 @@ openPopup.addEventListener("click", () => {
 });
 
 popupSaveButton.addEventListener("click", handleSaveButton);
-
-savePostButton.addEventListener("click", () => {
-  const url = document.querySelector("#post-image-url").value;
-  const title = document.querySelector("#post-title").value;
-  const newCard = new Card(url, title, popupWithImage);
-  const newCardElement = newCard.generateCard();
-  cardList.addNewItem(newCardElement);
-  popupWithFormPost.close();
-});
-
-// USER
-const api = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1/web_ptbr_05/",
-  headers: {
-    authorization: "1c87feaf-7ea2-4dd9-b0cc-b4816af3e289",
-    "Content-Type": "application/json",
-  },
-});
 
 const userInfo = new UserInfo({
   nameSelector: "#profile-name",
@@ -125,3 +125,21 @@ function handleSaveButton(evt) {
 
 
 
+// api
+//   .addNewPost("cardss", "Vale de Yosemite", "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg")
+//   .then((data) => {
+//     console.log(data);
+//   })
+//   .catch((error) => {
+//     console.error("Error adding new post:", error);
+//   });
+
+  
+savePostButton.addEventListener("click", () => {
+  const url = document.querySelector("#post-image-url").value;
+  const title = document.querySelector("#post-title").value;
+  const newCard = new Card(url, title, popupWithImage);
+  const newCardElement = newCard.generateCard();
+  cardList.addNewItem(newCardElement);
+  popupWithFormPost.close();
+});
