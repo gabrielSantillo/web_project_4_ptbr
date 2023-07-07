@@ -3,8 +3,8 @@
 
 export default class Api {
   constructor(options) {
-    this.baseUrl = options.baseUrl;
-    this.headers = options.headers;
+    this._baseUrl = options.baseUrl;
+    this._headers = options.headers;
   }
 
   getInitialCards() {
@@ -22,9 +22,9 @@ export default class Api {
   }
 
   getUserInfo() {
-    return fetch(this.baseUrl, {
+    return fetch(this._baseUrl, {
       headers: {
-        authorization: this.headers.authorization,
+        authorization: this._headers.authorization,
       },
     }).then((res) => {
       if (res.ok) {
@@ -32,6 +32,20 @@ export default class Api {
       }
       // se o servidor retornar um erro, rejeite a promessa
       return Promise.reject(`Error: ${res.status}`);
+    });
+  }
+
+  updateUserInfo(userName, userAbout, userImage) {
+    return fetch(this._baseUrl, {
+      method: "PATCH",
+      headers: {
+        authorization: "1c87feaf-7ea2-4dd9-b0cc-b4816af3e289",
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: userName,
+        about: userAbout
+      })
     });
   }
 }

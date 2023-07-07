@@ -63,25 +63,6 @@ openPopup.addEventListener("click", () => {
   popupWithFormEdit.open();
 });
 
-const userInfo = new UserInfo({
-  nameSelector: "#profile-name",
-  jobSelector: "#profile-about",
-});
-
-function handleSaveButton(evt) {
-  evt.preventDefault();
-
-  const name = document.getElementById("name");
-  const about = document.getElementById("about");
-
-  userInfo.setUserInfo({
-    name: name.value,
-    job: about.value,
-  });
-
-  popupWithFormEdit.close();
-}
-
 popupSaveButton.addEventListener("click", handleSaveButton);
 
 savePostButton.addEventListener("click", () => {
@@ -93,7 +74,8 @@ savePostButton.addEventListener("click", () => {
   popupWithFormPost.close();
 });
 
-const api = new Api({
+// USER
+const apiUser = new Api({
   baseUrl: "https://around.nomoreparties.co/v1/web_ptbr_05/users/me",
   headers: {
     authorization: "1c87feaf-7ea2-4dd9-b0cc-b4816af3e289",
@@ -101,12 +83,44 @@ const api = new Api({
   },
 });
 
-api
+const userInfo = new UserInfo({
+  nameSelector: "#profile-name",
+  jobSelector: "#profile-about",
+});
+
+apiUser
   .getUserInfo()
   .then((data) => {
-    console.log(data.name);
+    userInfo.setUserInfo({
+      name: data.name,
+      job: data.about,
+    });
   })
   .catch((error) => {
     console.error("Error getting the user info:", error);
   });
-  
+
+function handleSaveButton(evt) {
+  evt.preventDefault();
+
+  const name = document.getElementById("name");
+  const about = document.getElementById("about");
+
+  apiUser
+    .updateUserInfo(name.value, about.value)
+    .then((data) => {
+      console.log(data);
+      userInfo.setUserInfo({
+        name: name.value,
+        job: about.value,
+      });
+    })
+    .catch((error) => {
+      console.error("Error getting the user info:", error);
+    });
+
+  popupWithFormEdit.close();
+}
+
+
+
