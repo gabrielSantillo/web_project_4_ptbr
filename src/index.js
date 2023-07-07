@@ -29,11 +29,11 @@ const api = new Api({
 
 const popupWithImage = new PopupWithImage(".image__container");
 
+let cardList;
 api
   .getInitialCards("cards")
   .then((data) => {
-    console.log(data);
-    const cardList = new Section(
+    cardList = new Section(
       {
         items: data,
         renderer: (image) => {
@@ -44,14 +44,12 @@ api
       },
       cardElement
     );
-    
+
     cardList.renderItems();
   })
   .catch((error) => {
     console.error("Error getting the cards info:", error);
   });
-
-
 
 const formEditProfile = new FormValidator("#form-edit-profile", listOfClasses);
 formEditProfile.enableValidation();
@@ -123,23 +121,19 @@ function handleSaveButton(evt) {
   popupWithFormEdit.close();
 }
 
-
-
-// api
-//   .addNewPost("cardss", "Vale de Yosemite", "https://practicum-content.s3.us-west-1.amazonaws.com/web-code/moved_yosemite.jpg")
-//   .then((data) => {
-//     console.log(data);
-//   })
-//   .catch((error) => {
-//     console.error("Error adding new post:", error);
-//   });
-
-  
 savePostButton.addEventListener("click", () => {
   const url = document.querySelector("#post-image-url").value;
   const title = document.querySelector("#post-title").value;
-  const newCard = new Card(url, title, popupWithImage);
-  const newCardElement = newCard.generateCard();
-  cardList.addNewItem(newCardElement);
-  popupWithFormPost.close();
+  api
+    .addNewPost("cards", title, url)
+    .then((data) => {
+      console.log(data);
+      const newCard = new Card(url, title, popupWithImage);
+      const newCardElement = newCard.generateCard();
+      cardList.addNewItem(newCardElement);
+      popupWithFormPost.close();
+    })
+    .catch((error) => {
+      console.error("Error adding new post:", error);
+    });
 });
