@@ -3,3 +3,9 @@
     justify-content: space-between;
     align-items: center;
 }
+
+.post__card-content div {
+    display: grid;
+    place-items: center;
+    row-gap: 5px;
+}

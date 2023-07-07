@@ -32,6 +32,7 @@
 @import url('../blocks/post/__card/-content/post__card-content.css');
 @import url('../blocks/post/__card/-content/-title/post__card-content-title.css');
 @import url('../blocks/post/__card/-content/-like/post__card-content-like.css');
+@import url('../blocks/post/__card/-content/-like_count/post__card-content-like_count.css');
 
 
 /* IMAGE */

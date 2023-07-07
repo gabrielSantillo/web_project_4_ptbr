@@ -38,9 +38,7 @@
             />
             <div class="profile__info">
               <div class="profile__info-content">
-                <h1 class="profile__info-content-name" id="profile-name">
-                  
-                </h1>
+                <h1 class="profile__info-content-name" id="profile-name"></h1>
                 <button class="profile__info-content-edit" id="edit-profile">
                   <img
                     src="<%=require('./images/profile/profile-edit-pencil.png')%>"
@@ -48,24 +46,27 @@
                   />
                 </button>
               </div>
-              <p class="profile__info-description" id="profile-about">
-                
-              </p>
+              <p class="profile__info-description" id="profile-about"></p>
             </div>
           </div>
 
           <button class="profile__add" id="add-post">
-            <img src="<%=require('./images/profile/profile-add.png')%>" alt="" />
+            <img
+              src="<%=require('./images/profile/profile-add.png')%>"
+              alt=""
+            />
           </button>
         </section>
 
-        <section class="post">
-          
-        </section>
+        <section class="post"></section>
 
         <section class="popup close-popup" id="popup">
           <div class="popup__container edit-container">
-            <form id="form-edit-profile" class="popup__container-form form" novalidate>
+            <form
+              id="form-edit-profile"
+              class="popup__container-form form"
+              novalidate
+            >
               <div class="popup__container-form-heading">
                 <h2 class="popup__container-form-heading-title">
                   Editar Perfil
@@ -90,7 +91,9 @@
                   minlength="2"
                   maxlength="25"
                 />
-                <span class="popup__container-form-texts-error popup__container-form-texts-name-error"></span>
+                <span
+                  class="popup__container-form-texts-error popup__container-form-texts-name-error"
+                ></span>
                 <input
                   type="text"
                   class="popup__container-form-texts-input form__input input"
@@ -102,7 +105,9 @@
                   minlength="2"
                   maxlength="100"
                 />
-                <span class="popup__container-form-texts-error popup__container-form-texts-about-error"></span>
+                <span
+                  class="popup__container-form-texts-error popup__container-form-texts-about-error"
+                ></span>
                 <button
                   class="popup__container-form-button form__submit"
                   id="save-button"
@@ -116,7 +121,11 @@
 
         <section class="popup post-popup close-popup" id="popup-add-post">
           <div class="popup__container post-container">
-            <form id="form-add-post" class="popup__container-form form" novalidate>
+            <form
+              id="form-add-post"
+              class="popup__container-form form"
+              novalidate
+            >
               <div class="popup__container-form-heading">
                 <h2 class="popup__container-form-heading-title">Novo Lugar</h2>
                 <img
@@ -138,7 +147,9 @@
                   maxlength="30"
                   required
                 />
-                <span class="popup__container-form-texts-error popup__container-form-texts-post-title-error"></span>
+                <span
+                  class="popup__container-form-texts-error popup__container-form-texts-post-title-error"
+                ></span>
                 <input
                   type="url"
                   class="popup__container-form-texts-input form__input input"
@@ -147,7 +158,9 @@
                   placeholder="URL da imagem"
                   required
                 />
-                <span class="popup__container-form-texts-error popup__container-form-texts-post-image-url-error"></span>
+                <span
+                  class="popup__container-form-texts-error popup__container-form-texts-post-image-url-error"
+                ></span>
                 <button
                   class="popup__container-form-button form__submit"
                   id="save-button-post"
@@ -183,11 +196,14 @@
           />
           <div class="post__card-content">
             <h2 class="post__card-content-title"></h2>
-            <img
-              src="<%=require('./images/post/post-like.png')%>"
-              alt="Imagem de um coração"
-              class="post__card-content-like"
-            />
+            <div>
+              <img
+                src="<%=require('./images/post/post-like.png')%>"
+                alt="Imagem de um coração"
+                class="post__card-content-like"
+              />
+              <p class="post__card-content-like_count"></p>
+            </div>
           </div>
         </div>
       </template>
@@ -197,7 +213,7 @@
       </footer>
 
       <script type="module" src="./scripts/index.js"></script>
-      <script type="module" src="./scripts/utils.js"></script> 
+      <script type="module" src="./scripts/utils.js"></script>
     </div>
   </body>
 </html>
