@@ -10,6 +10,8 @@ export const popupElement = document.querySelector(".image");
 export const popupImage = document.querySelector(".image__container-photo");
 export const popupCaption = document.querySelector(".image__container-name");
 export const savePostButton = document.querySelector("#save-button-post");
+export const formUserName = document.querySelector("#name");
+export const formUserAbout = document.querySelector("#about")
 
 export const userInfo = "";
 

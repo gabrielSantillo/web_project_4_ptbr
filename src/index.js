@@ -12,6 +12,8 @@ import {
   images,
   popupSaveButton,
   savePostButton,
+  formUserName,
+  formUserAbout
 } from "./utils/utils.js";
 import Api from "./components/Api.js";
 
@@ -75,8 +77,8 @@ savePostButton.addEventListener("click", () => {
 });
 
 // USER
-const apiUser = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1/web_ptbr_05/users/me",
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/web_ptbr_05/",
   headers: {
     authorization: "1c87feaf-7ea2-4dd9-b0cc-b4816af3e289",
     "Content-Type": "application/json",
@@ -88,8 +90,8 @@ const userInfo = new UserInfo({
   jobSelector: "#profile-about",
 });
 
-apiUser
-  .getUserInfo()
+api
+  .getUserInfo("users/me")
   .then((data) => {
     userInfo.setUserInfo({
       name: data.name,
@@ -106,10 +108,9 @@ function handleSaveButton(evt) {
   const name = document.getElementById("name");
   const about = document.getElementById("about");
 
-  apiUser
-    .updateUserInfo(name.value, about.value)
+  api
+    .updateUserInfo("users/me", name.value, about.value)
     .then((data) => {
-      console.log(data);
       userInfo.setUserInfo({
         name: name.value,
         job: about.value,

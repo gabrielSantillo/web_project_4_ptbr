@@ -21,8 +21,8 @@ export default class Api {
     });
   }
 
-  getUserInfo() {
-    return fetch(this._baseUrl, {
+  getUserInfo(endpoint) {
+    return fetch(this._baseUrl + endpoint, {
       headers: {
         authorization: this._headers.authorization,
       },
@@ -35,8 +35,8 @@ export default class Api {
     });
   }
 
-  updateUserInfo(userName, userAbout, userImage) {
-    return fetch(this._baseUrl, {
+  updateUserInfo(endpoint, userName, userAbout) {
+    return fetch(this._baseUrl + endpoint, {
       method: "PATCH",
       headers: {
         authorization: "1c87feaf-7ea2-4dd9-b0cc-b4816af3e289",
