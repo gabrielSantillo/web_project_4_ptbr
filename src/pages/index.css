@@ -50,11 +50,13 @@
 @import url('../blocks/popup/popup.css');
 @import url('../blocks//popup/-opened/popup__opened.css');
 @import url('../blocks/popup/__container/popup__container.css');
+@import url('../blocks/popup/__container-img-profile/popup__container-img-profile.css');
 @import url('../blocks/popup/__container/-form/popup__container-form.css');
 @import url('../blocks/popup/__container/-form/-heading/popup__container-form-heading.css');
 @import url('../blocks/popup/__container/-form/-heading/-title/popup__container-form-heading-title.css');
 @import url('../blocks/popup/__container/-form/-heading/-close/popup__container-form-heading-close.css');
 @import url('../blocks/popup/__container/-form/-texts/popup__container-form-texts.css');
+@import url('../blocks/popup/__container/-form/texts-img-profile/popup__container-form-texts-img-profile.css');
 @import url('../blocks/popup/__container/-form/-button/popup__container-form-button.css');
 @import url('../blocks/popup/__container/-form/-texts/-input/popup__container-form-texts-input.css');
 @import url('../blocks/popup/__container/-form/-texts/-error/popup__container-form-texts-error.css');

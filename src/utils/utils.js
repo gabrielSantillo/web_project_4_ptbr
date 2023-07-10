@@ -12,6 +12,7 @@ export const popupCaption = document.querySelector(".image__container-name");
 export const savePostButton = document.querySelector("#save-button-post");
 export const cardLike = document.querySelector('.post__card-content-like');
 export const cardCountLikes = document.querySelector(".post__card-content-like_count");
+export const userProfileImage = document.querySelector('.profile__image');
 
 export const userInfo = "";
 

@@ -12,7 +12,8 @@ import {
   popupSaveButton,
   savePostButton,
   cardCountLikes,
-  cardLike
+  cardLike,
+  userProfileImage
 } from "./utils/utils.js";
 import Api from "./components/Api.js";
 
@@ -70,6 +71,7 @@ popupWithFormPost.setEventListeners();
 addPost.addEventListener("click", () => {
   popupWithFormPost.open();
 });
+
 
 const popupWithFormEdit = new PopupWithForm(
   ".edit-container",

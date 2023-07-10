@@ -184,6 +184,49 @@
           </div>
         </section>
 
+        <section class="popup close-popup" id="popup">
+          <div class="popup__container-img-profile edit-container">
+            <form
+              id="form-edit-profile-image"
+              class="popup__container-form form"
+              novalidate
+            >
+              <div class="popup__container-form-heading">
+                <h2 class="popup__container-form-heading-title">
+                  Alterar a foto do perfil
+                </h2>
+                <img
+                  src="<%=require('./images/popup/popup-close.png')%>"
+                  alt=""
+                  class="popup__container-form-heading-close close-icon"
+                  id="close-button"
+                />
+              </div>
+
+              <fieldset class="popup__container-form-texts-img-profile form__set">
+                <input
+                  type="url"
+                  class="popup__container-form-texts-input form__input input"
+                  id="profile-image"
+                  name="image"
+                  value=""
+                  placeholder="Image url..."
+                  required
+                />
+                <span
+                  class="popup__container-form-texts-error popup__container-form-texts-name-error"
+                ></span>
+                <button
+                  class="popup__container-form-button form__submit"
+                  id="save-profile-image-button"
+                >
+                  Salvar
+                </button>
+              </fieldset>
+            </form>
+          </div>
+        </section>
+
         <section class="popup delete close-popup" id="delete-post">
           <div class="popup__container delete-container">
               <div class="popup__container-form-heading">
