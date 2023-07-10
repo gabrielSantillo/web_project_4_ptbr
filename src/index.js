@@ -39,7 +39,8 @@ api
       {
         items: data,
         renderer: (image) => {
-          const card = new Card(image.link, image.name, popupWithImage, image.likes.length);
+          const isCardOwner = image.owner._id === "98c64f781e62cf9956ac5d2e";
+          const card = new Card(image.link, image.name, popupWithImage, image.likes.length, isCardOwner);
           const cardElement = card.generateCard();
           cardList.setItem(cardElement);
         },

@@ -1,11 +1,13 @@
 import { popupElement, popupImage, popupCaption } from "../utils/utils.js";
 
+
 export default class Card {
-  constructor(image, caption, popup, likes) {
+  constructor(image, caption, popup, likes, isCardOwner) {
     this._image = image;
     this._caption = caption;
     this._popup = popup;
-    this._likes = likes
+    this._likes = likes;
+    this._isCardOwner = isCardOwner;
   }
 
   // probably I will have to switch an id for a class template
@@ -18,7 +20,7 @@ export default class Card {
     return cardElement;
   }
 
-  generateCard() {
+  generateCard(isCardOwner) {
     this._element = this._getTemplate();
     this._setEventListeners();
 
@@ -27,6 +29,7 @@ export default class Card {
     this._element.querySelector(".post__card-content-title").textContent =
       this._caption;
     this._element.querySelector(".post__card-content-like_count").textContent = this._likes;
+    this._isCardOwner = isCardOwner;
 
     return this._element;
   }
@@ -44,6 +47,7 @@ export default class Card {
   }
 
   _handleDeleteButton(evt) {
+    console.log(this._element)
     evt.target.parentElement.remove();
   }
 
@@ -76,11 +80,16 @@ export default class Card {
         this._popup.open(this._image, this._caption)
       });
 
-    this._element
-      .querySelector(".post__card-remove")
-      .addEventListener("click", (evt) => {
-        this._handleDeleteButton(evt);
-      });
+    const deleteCardButton = this._element
+    .querySelector(".post__card-remove");
+
+    if(this._isCardOwner) {
+      deleteCardButton.addEventListener("click", (evt) => {
+        this._handleDeleteButton(evt);});
+      deleteCardButton.style.dislpay = "block";
+    } else {
+      deleteCardButton.style.display = "none";
+    }
 
     this._element
       .querySelector(".post__card-content-like")
