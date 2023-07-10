@@ -1,10 +1,11 @@
 import { popupElement, popupImage, popupCaption } from "../utils/utils.js";
 
 export default class Card {
-  constructor(image, caption, popup) {
+  constructor(image, caption, popup, likes) {
     this._image = image;
     this._caption = caption;
     this._popup = popup;
+    this._likes = likes
   }
 
   // probably I will have to switch an id for a class template
@@ -25,6 +26,7 @@ export default class Card {
     this._element.querySelector(".post__card-image").setAttribute("alt", this._caption);
     this._element.querySelector(".post__card-content-title").textContent =
       this._caption;
+    this._element.querySelector(".post__card-content-like_count").textContent = this._likes;
 
     return this._element;
   }
@@ -46,15 +48,25 @@ export default class Card {
   }
 
   _handleLikeButton(evt) {
-
-    if (
-      evt.target.src !==
-      "http://127.0.0.1:5500/images/post/post-like-filled.png"
-    ) {
-      evt.target.setAttribute("src", "<%=require('./images/post/post-like-filled.png')%>");
+    // if (
+    //   evt.target.src !==
+    //   "http://127.0.0.1:5500/images/post/post-like-filled.png"
+    // ) {
+    //   evt.target.setAttribute("src", "<%=require('./images/post/post-like-filled.png')%>");
+    // } else {
+    //   evt.target.setAttribute("src", "<%=require('./images/post/post-like.png')%>");
+    // }
+    
+    if(evt.target.nextElementSibling.textContent !== "") {
+      let likes = Number(evt.target.nextElementSibling.textContent);
+      likes += 1;
+      evt.target.nextElementSibling.textContent = likes;
+      console.log("agora tem likes e esta somando com numeros e nao strings")
     } else {
-      evt.target.setAttribute("src", "<%=require('./images/post/post-like.png')%>");
+      evt.target.nextElementSibling.textContent += 1;
+      console.log("aqui estava sem likes")
     }
+    
   }
 
   _setEventListeners() {
@@ -78,68 +90,4 @@ export default class Card {
   }
 }
 
-// export default class Card {
-//   constructor(image, caption, handleCardClick) {
-//     this._image = image;
-//     this._caption = caption;
-//     this._handleCardClick = handleCardClick;
-//   }
-
-//   _getTemplate() {
-//     const cardTemplate = document.querySelector("#template").content;
-//     const cardElement = cardTemplate
-//       .querySelector(".post__card")
-//       .cloneNode(true);
-
-//     return cardElement;
-//   }
-
-//   generateCard() {
-//     this._element = this._getTemplate();
-//     this._setEventListeners();
-
-//     this._element
-//       .querySelector(".post__card-image")
-//       .setAttribute("src", this._image);
-//     this._element.querySelector(".post__card-content-title").textContent =
-//       this._caption;
-
-//     return this._element;
-//   }
-
-//   _handleDeleteButton(evt) {
-//     evt.target.parentElement.remove();
-//   }
-
-//   _handleLikeButton(evt) {
-//     if (
-//       evt.target.src !==
-//       "http://127.0.0.1:5500/images/post/post-like-filled.png"
-//     ) {
-//       evt.target.setAttribute("src", "./images/post/post-like-filled.png");
-//     } else {
-//       evt.target.setAttribute("src", "./images/post/post-like.png");
-//     }
-//   }
-
-//   _setEventListeners() {
-//     this._element
-//       .querySelector(".post__card-image")
-//       .addEventListener("click", () => {
-//         this._handleCardClick(this._image, this._caption);
-//       });
-
-//     this._element
-//       .querySelector(".post__card-remove")
-//       .addEventListener("click", (evt) => {
-//         this._handleDeleteButton(evt);
-//       });
-
-//     this._element
-//       .querySelector(".post__card-content-like")
-//       .addEventListener("click", (evt) => {
-//         this._handleLikeButton(evt);
-//       });
-//   }
-// }
 

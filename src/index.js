@@ -9,11 +9,10 @@ import {
   addPost,
   openPopup,
   listOfClasses,
-  images,
   popupSaveButton,
   savePostButton,
-  formUserName,
-  formUserAbout,
+  cardCountLikes,
+  cardLike
 } from "./utils/utils.js";
 import Api from "./components/Api.js";
 
@@ -33,18 +32,20 @@ let cardList;
 api
   .getInitialCards("cards")
   .then((data) => {
+    console.log(data);
+
+
     cardList = new Section(
       {
         items: data,
         renderer: (image) => {
-          const card = new Card(image.link, image.name, popupWithImage);
+          const card = new Card(image.link, image.name, popupWithImage, image.likes.length);
           const cardElement = card.generateCard();
           cardList.setItem(cardElement);
         },
       },
       cardElement
     );
-
     cardList.renderItems();
   })
   .catch((error) => {
@@ -137,3 +138,4 @@ savePostButton.addEventListener("click", () => {
       console.error("Error adding new post:", error);
     });
 });
+
