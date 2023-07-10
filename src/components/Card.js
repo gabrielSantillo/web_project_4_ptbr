@@ -1,13 +1,5 @@
 import { popupElement, popupImage, popupCaption } from "../utils/utils.js";
-import Api from "./Api.js";
-
-const api = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1/web_ptbr_05/",
-  headers: {
-    authorization: "1c87feaf-7ea2-4dd9-b0cc-b4816af3e289",
-    "Content-Type": "application/json",
-  },
-});
+import {api} from "../index.js";
 
 export default class Card {
   constructor(image, caption, popup, likes, isCardOwner, imageId) {
