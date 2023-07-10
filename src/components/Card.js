@@ -1,13 +1,22 @@
 import { popupElement, popupImage, popupCaption } from "../utils/utils.js";
+import Api from "./Api.js";
 
+const api = new Api({
+  baseUrl: "https://around.nomoreparties.co/v1/web_ptbr_05/",
+  headers: {
+    authorization: "1c87feaf-7ea2-4dd9-b0cc-b4816af3e289",
+    "Content-Type": "application/json",
+  },
+});
 
 export default class Card {
-  constructor(image, caption, popup, likes, isCardOwner) {
+  constructor(image, caption, popup, likes, isCardOwner, imageId) {
     this._image = image;
     this._caption = caption;
     this._popup = popup;
     this._likes = likes;
     this._isCardOwner = isCardOwner;
+    this._imageId = imageId;
   }
 
   // probably I will have to switch an id for a class template
@@ -17,6 +26,8 @@ export default class Card {
       .querySelector(".post__card")
       .cloneNode(true);
 
+    cardElement.dataset.cardId = this._imageId;
+
     return cardElement;
   }
 
@@ -24,11 +35,16 @@ export default class Card {
     this._element = this._getTemplate();
     this._setEventListeners();
 
-    this._element.querySelector(".post__card-image").setAttribute("src", this._image);
-    this._element.querySelector(".post__card-image").setAttribute("alt", this._caption);
+    this._element
+      .querySelector(".post__card-image")
+      .setAttribute("src", this._image);
+    this._element
+      .querySelector(".post__card-image")
+      .setAttribute("alt", this._caption);
     this._element.querySelector(".post__card-content-title").textContent =
       this._caption;
-    this._element.querySelector(".post__card-content-like_count").textContent = this._likes;
+    this._element.querySelector(".post__card-content-like_count").textContent =
+      this._likes;
     this._isCardOwner = isCardOwner;
 
     return this._element;
@@ -47,7 +63,16 @@ export default class Card {
   }
 
   _handleDeleteButton(evt) {
-    console.log(this._element)
+    console.log(this._element.dataset.cardId);
+    api
+      .deleteCard("cards", this._element.dataset.cardId)
+      .then((data) => {
+        console.log(data)
+      })
+      .catch((error) => {
+        console.error("Error deleting the card:", error);
+      });
+
     evt.target.parentElement.remove();
   }
 
@@ -60,32 +85,31 @@ export default class Card {
     // } else {
     //   evt.target.setAttribute("src", "<%=require('./images/post/post-like.png')%>");
     // }
-    
-    if(evt.target.nextElementSibling.textContent !== "") {
+
+    if (evt.target.nextElementSibling.textContent !== "") {
       let likes = Number(evt.target.nextElementSibling.textContent);
       likes += 1;
       evt.target.nextElementSibling.textContent = likes;
-      console.log("agora tem likes e esta somando com numeros e nao strings")
+      console.log("agora tem likes e esta somando com numeros e nao strings");
     } else {
       evt.target.nextElementSibling.textContent += 1;
-      console.log("aqui estava sem likes")
+      console.log("aqui estava sem likes");
     }
-    
   }
 
   _setEventListeners() {
     this._element
       .querySelector(".post__card-image")
       .addEventListener("click", () => {
-        this._popup.open(this._image, this._caption)
+        this._popup.open(this._image, this._caption);
       });
 
-    const deleteCardButton = this._element
-    .querySelector(".post__card-remove");
+    const deleteCardButton = this._element.querySelector(".post__card-remove");
 
-    if(this._isCardOwner) {
+    if (this._isCardOwner) {
       deleteCardButton.addEventListener("click", (evt) => {
-        this._handleDeleteButton(evt);});
+        this._handleDeleteButton(evt);
+      });
       deleteCardButton.style.dislpay = "block";
     } else {
       deleteCardButton.style.display = "none";
@@ -98,5 +122,3 @@ export default class Card {
       });
   }
 }
-
-

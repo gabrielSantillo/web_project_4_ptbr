@@ -62,4 +62,14 @@ export default class Api {
       }),
     });
   }
+
+  deleteCard(endpoint, cardId) {
+    return fetch(this._baseUrl + endpoint  + "/" + cardId, {
+      method: "DELETE",
+      headers: {
+        authorization: "1c87feaf-7ea2-4dd9-b0cc-b4816af3e289",
+        "Content-Type": "application/json",
+      },
+    });
+  }
 }

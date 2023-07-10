@@ -33,14 +33,12 @@ api
   .getInitialCards("cards")
   .then((data) => {
     console.log(data);
-
-
     cardList = new Section(
       {
         items: data,
         renderer: (image) => {
           const isCardOwner = image.owner._id === "98c64f781e62cf9956ac5d2e";
-          const card = new Card(image.link, image.name, popupWithImage, image.likes.length, isCardOwner);
+          const card = new Card(image.link, image.name, popupWithImage, image.likes.length, isCardOwner, image._id);
           const cardElement = card.generateCard();
           cardList.setItem(cardElement);
         },
