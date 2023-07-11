@@ -32,9 +32,10 @@
         <section class="profile">
           <div>
             <img
-              src="<%=require('./images/profile/profile-image.png')%>"
+              src=""
               alt="Imagem da foto do perfil"
               class="profile__image"
+              id="profile-image"
             />
             <div class="profile__info">
               <div class="profile__info-content">
@@ -184,8 +185,8 @@
           </div>
         </section>
 
-        <section class="popup close-popup" id="popup">
-          <div class="popup__container-img-profile edit-container">
+        <section class="popup close-popup popup-edit-profile-image" id="popup">
+          <div class="popup__container-img-profile edit-img-profile-container">
             <form
               id="form-edit-profile-image"
               class="popup__container-form form"
@@ -214,7 +215,7 @@
                   required
                 />
                 <span
-                  class="popup__container-form-texts-error popup__container-form-texts-name-error"
+                  class="popup__container-form-texts-error popup__container-form-texts-profile-image-error"
                 ></span>
                 <button
                   class="popup__container-form-button form__submit"

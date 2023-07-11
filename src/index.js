@@ -3,6 +3,7 @@ import FormValidator from "./components/FormValidator.js";
 import Section from "./components/Section.js";
 import PopupWithImage from "./components/PopupWithImage.js";
 import PopupWithForm from "./components/PopupWithForm.js";
+import PopupEditProfileImage from "./components/PopupEditProfileIamge.js";
 import UserInfo from "./components/UserInfo.js";
 import {
   cardElement,
@@ -13,7 +14,8 @@ import {
   savePostButton,
   cardCountLikes,
   cardLike,
-  userProfileImage
+  userProfileImage,
+  saveUserImageProfileButton
 } from "./utils/utils.js";
 import Api from "./components/Api.js";
 
@@ -29,6 +31,12 @@ export const api = new Api({
 
 const popupWithImage = new PopupWithImage(".image__container");
 
+const userInfo = new UserInfo({
+  nameSelector: "#profile-name",
+  jobSelector: "#profile-about",
+  imageSelector: "#profile-image"
+});
+
 
 let user;
 api
@@ -37,8 +45,10 @@ api
     userInfo.setUserInfo({
       name: data.name,
       job: data.about,
+      image: data.avatar,
     });
     user = data;
+    console.log(user);
   })
   .catch((error) => {
     console.error("Error getting the user info:", error);
@@ -46,13 +56,13 @@ api
 
 function handleDeleteCard(cardId) {
   api
-  .deleteCard("cards", cardId)
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((error) => {
-    console.error("Error deleting the card:", error);
-  });
+    .deleteCard("cards", cardId)
+    .then((data) => {
+      console.log(data);
+    })
+    .catch((error) => {
+      console.error("Error deleting the card:", error);
+    });
 }
 
 let cardList;
@@ -65,7 +75,15 @@ api
         items: data,
         renderer: (image) => {
           const isCardOwner = image.owner._id === user._id;
-          const card = new Card(image.link, image.name, popupWithImage, image.likes.length, isCardOwner, image._id, handleDeleteCard);
+          const card = new Card(
+            image.link,
+            image.name,
+            popupWithImage,
+            image.likes.length,
+            isCardOwner,
+            image._id,
+            handleDeleteCard
+          );
           const cardElement = card.generateCard();
           cardList.setItem(cardElement);
         },
@@ -77,8 +95,6 @@ api
   .catch((error) => {
     console.error("Error getting the cards info:", error);
   });
-
-
 
 const formEditProfile = new FormValidator("#form-edit-profile", listOfClasses);
 formEditProfile.enableValidation();
@@ -98,8 +114,8 @@ popupWithFormPost.setEventListeners();
 
 addPost.addEventListener("click", () => {
   popupWithFormPost.open();
+  console.log(addPost)
 });
-
 
 const popupWithFormEdit = new PopupWithForm(
   ".edit-container",
@@ -107,16 +123,45 @@ const popupWithFormEdit = new PopupWithForm(
 );
 popupWithFormEdit.setEventListeners();
 
+
 openPopup.addEventListener("click", () => {
   popupWithFormEdit.open();
 });
 
+
+const handleUpdateProfileImage = (formUpdateImageProfile) => {
+  formUpdateImageProfile
+}
+
+const popupEditProfileIamge =  new PopupEditProfileImage(
+  ".edit-img-profile-container",
+  handleUpdateProfileImage
+);
+popupEditProfileIamge.setEventListeners();
+
+userProfileImage.addEventListener("click", () => {
+  popupEditProfileIamge.open();
+})
+
+const formChangeImageProfile = new FormValidator("#form-edit-profile-image", listOfClasses)
+formChangeImageProfile.enableValidation();
+
+
+saveUserImageProfileButton.addEventListener("click", () => {
+  api.updateUserProfileImage("users/me/avatar", document.querySelector("#profile-image").value).then((data) => {
+  console.log(data)
+  })
+  .catch((error) => {
+    console.error("Error getting the user info:", error);
+  });
+
+  popupEditProfileIamge.close();
+
+})
+
 popupSaveButton.addEventListener("click", handleSaveButton);
 
-const userInfo = new UserInfo({
-  nameSelector: "#profile-name",
-  jobSelector: "#profile-about",
-});
+
 
 function handleSaveButton(evt) {
   evt.preventDefault();
@@ -155,4 +200,3 @@ savePostButton.addEventListener("click", () => {
       console.error("Error adding new post:", error);
     });
 });
-
