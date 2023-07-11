@@ -1,14 +1,14 @@
 import { popupElement, popupImage, popupCaption } from "../utils/utils.js";
-import {api} from "../index.js";
 
 export default class Card {
-  constructor(image, caption, popup, likes, isCardOwner, imageId) {
+  constructor(image, caption, popup, likes, isCardOwner, imageId, handleDeleteCard) {
     this._image = image;
     this._caption = caption;
     this._popup = popup;
     this._likes = likes;
     this._isCardOwner = isCardOwner;
     this._imageId = imageId;
+    this._handleDeleteCard = handleDeleteCard;
   }
 
   // probably I will have to switch an id for a class template
@@ -55,15 +55,7 @@ export default class Card {
   }
 
   _handleDeleteButton(evt) {
-    console.log(this._element.dataset.cardId);
-    api
-      .deleteCard("cards", this._element.dataset.cardId)
-      .then((data) => {
-        console.log(data)
-      })
-      .catch((error) => {
-        console.error("Error deleting the card:", error);
-      });
+    this._handleDeleteCard(this._element.dataset.cardId)
 
     evt.target.parentElement.remove();
   }

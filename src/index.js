@@ -29,6 +29,32 @@ export const api = new Api({
 
 const popupWithImage = new PopupWithImage(".image__container");
 
+
+let user;
+api
+  .getUserInfo("users/me")
+  .then((data) => {
+    userInfo.setUserInfo({
+      name: data.name,
+      job: data.about,
+    });
+    user = data;
+  })
+  .catch((error) => {
+    console.error("Error getting the user info:", error);
+  });
+
+function handleDeleteCard(cardId) {
+  api
+  .deleteCard("cards", cardId)
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.error("Error deleting the card:", error);
+  });
+}
+
 let cardList;
 api
   .getInitialCards("cards")
@@ -38,8 +64,8 @@ api
       {
         items: data,
         renderer: (image) => {
-          const isCardOwner = image.owner._id === "98c64f781e62cf9956ac5d2e";
-          const card = new Card(image.link, image.name, popupWithImage, image.likes.length, isCardOwner, image._id);
+          const isCardOwner = image.owner._id === user._id;
+          const card = new Card(image.link, image.name, popupWithImage, image.likes.length, isCardOwner, image._id, handleDeleteCard);
           const cardElement = card.generateCard();
           cardList.setItem(cardElement);
         },
@@ -51,6 +77,8 @@ api
   .catch((error) => {
     console.error("Error getting the cards info:", error);
   });
+
+
 
 const formEditProfile = new FormValidator("#form-edit-profile", listOfClasses);
 formEditProfile.enableValidation();
@@ -89,18 +117,6 @@ const userInfo = new UserInfo({
   nameSelector: "#profile-name",
   jobSelector: "#profile-about",
 });
-
-api
-  .getUserInfo("users/me")
-  .then((data) => {
-    userInfo.setUserInfo({
-      name: data.name,
-      job: data.about,
-    });
-  })
-  .catch((error) => {
-    console.error("Error getting the user info:", error);
-  });
 
 function handleSaveButton(evt) {
   evt.preventDefault();
