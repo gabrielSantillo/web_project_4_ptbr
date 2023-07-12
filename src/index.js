@@ -4,6 +4,7 @@ import Section from "./components/Section.js";
 import PopupWithImage from "./components/PopupWithImage.js";
 import PopupWithForm from "./components/PopupWithForm.js";
 import PopupEditProfileImage from "./components/PopupEditProfileIamge.js";
+import PopupConfirmDeleteCard from "./components/PopupConfirmDeleteCard.js";
 import UserInfo from "./components/UserInfo.js";
 import {
   cardElement,
@@ -15,8 +16,12 @@ import {
   cardCountLikes,
   cardLike,
   userProfileImage,
-  saveUserImageProfileButton
+  saveUserImageProfileButton,
+  popupDeletePostIcon,
+  closeButtonPopupDeletePost,
 } from "./utils/utils.js";
+
+
 import Api from "./components/Api.js";
 
 import "./pages/index.css";
@@ -34,9 +39,8 @@ const popupWithImage = new PopupWithImage(".image__container");
 const userInfo = new UserInfo({
   nameSelector: "#profile-name",
   jobSelector: "#profile-about",
-  imageSelector: "#profile-image"
+  imageSelector: "#profile-image",
 });
-
 
 let user;
 api
@@ -54,15 +58,17 @@ api
     console.error("Error getting the user info:", error);
   });
 
+closeButtonPopupDeletePost.addEventListener("click", () => {
+  popupDeletePost.classList.remove("popup-opened");
+});
+
 function handleDeleteCard(cardId) {
-  api
-    .deleteCard("cards", cardId)
-    .then((data) => {
-      console.log(data);
-    })
-    .catch((error) => {
-      console.error("Error deleting the card:", error);
-    });
+  const popupConfirmDeleteCard = new PopupConfirmDeleteCard(
+    "#delete-card-container",
+    api.deleteCard("cards", cardId)
+  );
+  popupConfirmDeleteCard.setEventListeners();
+  popupConfirmDeleteCard.open();
 }
 
 let cardList;
@@ -114,7 +120,7 @@ popupWithFormPost.setEventListeners();
 
 addPost.addEventListener("click", () => {
   popupWithFormPost.open();
-  console.log(addPost)
+  console.log(addPost);
 });
 
 const popupWithFormEdit = new PopupWithForm(
@@ -123,17 +129,15 @@ const popupWithFormEdit = new PopupWithForm(
 );
 popupWithFormEdit.setEventListeners();
 
-
 openPopup.addEventListener("click", () => {
   popupWithFormEdit.open();
 });
 
-
 const handleUpdateProfileImage = (formUpdateImageProfile) => {
-  formUpdateImageProfile
-}
+  formUpdateImageProfile;
+};
 
-const popupEditProfileIamge =  new PopupEditProfileImage(
+const popupEditProfileIamge = new PopupEditProfileImage(
   ".edit-img-profile-container",
   handleUpdateProfileImage
 );
@@ -141,27 +145,36 @@ popupEditProfileIamge.setEventListeners();
 
 userProfileImage.addEventListener("click", () => {
   popupEditProfileIamge.open();
-})
+});
 
-const formChangeImageProfile = new FormValidator("#form-edit-profile-image", listOfClasses)
+const formChangeImageProfile = new FormValidator(
+  "#form-edit-profile-image",
+  listOfClasses
+);
 formChangeImageProfile.enableValidation();
 
-
 saveUserImageProfileButton.addEventListener("click", () => {
-  api.updateUserProfileImage("users/me/avatar", document.querySelector("#profile-image").value).then((data) => {
-  console.log(data)
-  })
-  .catch((error) => {
-    console.error("Error getting the user info:", error);
-  });
+  api
+    .updateUserProfileImage(
+      "users/me/avatar",
+      document.querySelector("#profile-image-input").value
+    )
+    .then((res) => res.json())
+    .then((data) => {
+      userInfo.setUserInfo({
+        name: data.name,
+        job: data.about,
+        image: data.avatar,
+      });
+    })
+    .catch((error) => {
+      console.error("Error getting the user info:", error);
+    });
 
   popupEditProfileIamge.close();
-
-})
+});
 
 popupSaveButton.addEventListener("click", handleSaveButton);
-
-
 
 function handleSaveButton(evt) {
   evt.preventDefault();
@@ -171,10 +184,13 @@ function handleSaveButton(evt) {
 
   api
     .updateUserInfo("users/me", name.value, about.value)
+    .then((res) => res.json())
     .then((data) => {
+      console.log("Update ", data);
       userInfo.setUserInfo({
-        name: name.value,
-        job: about.value,
+        name: data.name,
+        job: data.about,
+        image: data.avatar,
       });
     })
     .catch((error) => {
@@ -189,9 +205,20 @@ savePostButton.addEventListener("click", () => {
   const title = document.querySelector("#post-title").value;
   api
     .addNewPost("cards", title, url)
+    .then((res) => {
+      return res.json();
+    })
     .then((data) => {
       console.log(data);
-      const newCard = new Card(url, title, popupWithImage);
+      const newCard = new Card(
+        data.link,
+        data.name,
+        popupWithImage,
+        data.likes.length,
+        true,
+        data._id,
+        handleDeleteCard
+      );
       const newCardElement = newCard.generateCard();
       cardList.addNewItem(newCardElement);
       popupWithFormPost.close();

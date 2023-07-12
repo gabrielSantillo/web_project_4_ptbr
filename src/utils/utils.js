@@ -14,6 +14,9 @@ export const cardLike = document.querySelector('.post__card-content-like');
 export const cardCountLikes = document.querySelector(".post__card-content-like_count");
 export const userProfileImage = document.querySelector('.profile__image');
 export const saveUserImageProfileButton = document.querySelector("#save-profile-image-button");
+export const popupDeletePostIcon = document.querySelector("#delete-post");
+export const closeButtonPopupDeletePost = document.querySelector("#close-popup-delete-button");
+export const popupDeletePostButton = document.querySelector("#popup-delete-post-button");
 
 export const userInfo = "";
 

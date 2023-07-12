@@ -208,14 +208,14 @@
                 <input
                   type="url"
                   class="popup__container-form-texts-input form__input input"
-                  id="profile-image"
+                  id="profile-image-input"
                   name="image"
                   value=""
                   placeholder="Image url..."
                   required
                 />
                 <span
-                  class="popup__container-form-texts-error popup__container-form-texts-profile-image-error"
+                  class="popup__container-form-texts-error popup__container-form-texts-profile-image-input-error"
                 ></span>
                 <button
                   class="popup__container-form-button form__submit"
@@ -229,7 +229,8 @@
         </section>
 
         <section class="popup delete close-popup" id="delete-post">
-          <div class="popup__container-img-profile edit-container">
+          <div class="popup__container-img-profile edit-container"
+          id="delete-card-container">
             <form
               id="form-edit-profile-image"
               class="popup__container-form form"
@@ -243,7 +244,7 @@
                   src="<%=require('./images/popup/popup-close.png')%>"
                   alt=""
                   class="popup__container-form-heading-close close-icon"
-                  id="close-button"
+                  id="close-popup-delete-button"
                 />
               </div>
 
@@ -251,7 +252,7 @@
 
                 <button
                   class="popup__container-form-button form__submit"
-                  id="save-profile-image-button"
+                  id="popup-delete-post-button"
                 >
                   Sim
                 </button>

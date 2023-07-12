@@ -1,7 +1,21 @@
-import { popupElement, popupImage, popupCaption } from "../utils/utils.js";
+import {
+  popupElement,
+  popupImage,
+  popupCaption,
+  popupDeletePostIcon,
+  popupDeletePostButton,
+} from "../utils/utils.js";
 
 export default class Card {
-  constructor(image, caption, popup, likes, isCardOwner, imageId, handleDeleteCard) {
+  constructor(
+    image,
+    caption,
+    popup,
+    likes,
+    isCardOwner,
+    imageId,
+    handleDeleteCard,
+  ) {
     this._image = image;
     this._caption = caption;
     this._popup = popup;
@@ -55,9 +69,9 @@ export default class Card {
   }
 
   _handleDeleteButton(evt) {
-    this._handleDeleteCard(this._element.dataset.cardId)
+      this._handleDeleteCard(this._element.dataset.cardId);
 
-    evt.target.parentElement.remove();
+      // evt.target.parentElement.remove();
   }
 
   _handleLikeButton(evt) {
@@ -94,7 +108,8 @@ export default class Card {
       deleteCardButton.addEventListener("click", (evt) => {
         this._handleDeleteButton(evt);
       });
-      deleteCardButton.style.dislpay = "block";
+
+      deleteCardButton.style.display = "block";
     } else {
       deleteCardButton.style.display = "none";
     }
