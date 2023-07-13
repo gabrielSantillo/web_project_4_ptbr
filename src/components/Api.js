@@ -98,4 +98,23 @@ export default class Api {
       }),
     });
   }
+
+  removeLike(endpoint, cardId) {
+    return fetch(this._baseUrl + endpoint + cardId, {
+      method: "DELETE",
+      headers: {
+        authorization: this._headers.authorization,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json();
+        }
+        return Promise.reject(`Error: ${res.status}`);
+      })
+      .catch((error) => {
+        console.error("Error removing like:", error);
+      });
+  }
 }

@@ -21,7 +21,6 @@ import {
   closeButtonPopupDeletePost,
 } from "./utils/utils.js";
 
-
 import Api from "./components/Api.js";
 
 import "./pages/index.css";
@@ -42,7 +41,7 @@ const userInfo = new UserInfo({
   imageSelector: "#profile-image",
 });
 
-let user;
+export let user;
 api
   .getUserInfo("users/me")
   .then((data) => {
@@ -63,13 +62,15 @@ closeButtonPopupDeletePost.addEventListener("click", () => {
 });
 
 function handleLikeCard(cardId, user) {
-  api.addLike("cards/likes/", cardId, user)
-  .then(res => res.json())
-  .then(data => {
-    console.log(data);
-  }).catch(e => {
-    console.log("Error trying to like a card:", e);
-  })
+  api
+    .addLike("cards/likes/", cardId, user)
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(data)
+    })
+    .catch((e) => {
+      console.log("Error trying to like a card:", e);
+    });
 }
 
 function handleDeleteCard(cardId) {
@@ -99,7 +100,6 @@ api
             isCardOwner,
             image._id,
             handleDeleteCard,
-            handleLikeCard
           );
           const cardElement = card.generateCard();
           cardList.setItem(cardElement);
