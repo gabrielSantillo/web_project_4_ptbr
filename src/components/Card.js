@@ -15,6 +15,7 @@ export default class Card {
     isCardOwner,
     imageId,
     handleDeleteCard,
+    handleLikeCard,
   ) {
     this._image = image;
     this._caption = caption;
@@ -23,6 +24,7 @@ export default class Card {
     this._isCardOwner = isCardOwner;
     this._imageId = imageId;
     this._handleDeleteCard = handleDeleteCard;
+    this._handleLikeCard = handleLikeCard
   }
 
   // probably I will have to switch an id for a class template
@@ -68,10 +70,8 @@ export default class Card {
     popupElement.classList.remove("popup-opened");
   }
 
-  _handleDeleteButton(evt) {
+  _handleDeleteButton() {
       this._handleDeleteCard(this._element.dataset.cardId);
-
-      // evt.target.parentElement.remove();
   }
 
   _handleLikeButton(evt) {
@@ -84,15 +84,8 @@ export default class Card {
     //   evt.target.setAttribute("src", "<%=require('./images/post/post-like.png')%>");
     // }
 
-    if (evt.target.nextElementSibling.textContent !== "") {
-      let likes = Number(evt.target.nextElementSibling.textContent);
-      likes += 1;
-      evt.target.nextElementSibling.textContent = likes;
-      console.log("agora tem likes e esta somando com numeros e nao strings");
-    } else {
-      evt.target.nextElementSibling.textContent += 1;
-      console.log("aqui estava sem likes");
-    }
+
+    this._handleLikeCard(this._element.dataset.cardId);
   }
 
   _setEventListeners() {
@@ -106,7 +99,7 @@ export default class Card {
 
     if (this._isCardOwner) {
       deleteCardButton.addEventListener("click", (evt) => {
-        this._handleDeleteButton(evt);
+        this._handleDeleteButton();
       });
 
       deleteCardButton.style.display = "block";

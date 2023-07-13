@@ -85,4 +85,17 @@ export default class Api {
       }),
     });
   }
+
+  addLike(endpoint, cardId, user) {
+    return fetch(this._baseUrl + endpoint + cardId, {
+      method: "PUT",
+      headers: {
+        authorization: "1c87feaf-7ea2-4dd9-b0cc-b4816af3e289",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        likes: user,
+      }),
+    });
+  }
 }

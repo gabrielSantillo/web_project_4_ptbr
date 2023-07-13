@@ -62,6 +62,16 @@ closeButtonPopupDeletePost.addEventListener("click", () => {
   popupDeletePost.classList.remove("popup-opened");
 });
 
+function handleLikeCard(cardId, user) {
+  api.addLike("cards/likes/", cardId, user)
+  .then(res => res.json())
+  .then(data => {
+    console.log(data);
+  }).catch(e => {
+    console.log("Error trying to like a card:", e);
+  })
+}
+
 function handleDeleteCard(cardId) {
   const popupConfirmDeleteCard = new PopupConfirmDeleteCard(
     "#delete-card-container",
@@ -88,7 +98,8 @@ api
             image.likes.length,
             isCardOwner,
             image._id,
-            handleDeleteCard
+            handleDeleteCard,
+            handleLikeCard
           );
           const cardElement = card.generateCard();
           cardList.setItem(cardElement);
@@ -217,7 +228,8 @@ savePostButton.addEventListener("click", () => {
         data.likes.length,
         true,
         data._id,
-        handleDeleteCard
+        handleDeleteCard,
+        handleLikeCard
       );
       const newCardElement = newCard.generateCard();
       cardList.addNewItem(newCardElement);
