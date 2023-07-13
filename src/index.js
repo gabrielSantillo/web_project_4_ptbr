@@ -61,18 +61,6 @@ closeButtonPopupDeletePost.addEventListener("click", () => {
   popupDeletePost.classList.remove("popup-opened");
 });
 
-function handleLikeCard(cardId, user) {
-  api
-    .addLike("cards/likes/", cardId, user)
-    .then((res) => res.json())
-    .then((data) => {
-      console.log(data)
-    })
-    .catch((e) => {
-      console.log("Error trying to like a card:", e);
-    });
-}
-
 function handleDeleteCard(cardId) {
   const popupConfirmDeleteCard = new PopupConfirmDeleteCard(
     "#delete-card-container",
@@ -99,7 +87,7 @@ api
             image.likes.length,
             isCardOwner,
             image._id,
-            handleDeleteCard,
+            handleDeleteCard
           );
           const cardElement = card.generateCard();
           cardList.setItem(cardElement);
@@ -165,6 +153,10 @@ const formChangeImageProfile = new FormValidator(
 formChangeImageProfile.enableValidation();
 
 saveUserImageProfileButton.addEventListener("click", () => {
+  const saveButton = document.querySelector("#save-profile-image-button");
+
+  saveButton.textContent = "Salvando...";
+
   api
     .updateUserProfileImage(
       "users/me/avatar",
@@ -180,9 +172,11 @@ saveUserImageProfileButton.addEventListener("click", () => {
     })
     .catch((error) => {
       console.error("Error getting the user info:", error);
+    })
+    .finally(() => {
+      saveButton.textContent = "Salvar";
+      popupEditProfileIamge.close();
     });
-
-  popupEditProfileIamge.close();
 });
 
 popupSaveButton.addEventListener("click", handleSaveButton);
@@ -192,6 +186,9 @@ function handleSaveButton(evt) {
 
   const name = document.getElementById("name");
   const about = document.getElementById("about");
+  const saveButton = document.getElementById("save-button");
+
+  saveButton.textContent = "Salvando...";
 
   api
     .updateUserInfo("users/me", name.value, about.value)
@@ -206,14 +203,20 @@ function handleSaveButton(evt) {
     })
     .catch((error) => {
       console.error("Error getting the user info:", error);
+    })
+    .finally(() => {
+      saveButton.textContent = "Salvar";
+      popupWithFormEdit.close();
     });
-
-  popupWithFormEdit.close();
 }
 
 savePostButton.addEventListener("click", () => {
   const url = document.querySelector("#post-image-url").value;
   const title = document.querySelector("#post-title").value;
+  const saveButton = document.querySelector("#save-button-post");
+
+  saveButton.textContent = "Salvando...";
+
   api
     .addNewPost("cards", title, url)
     .then((res) => {
@@ -228,14 +231,16 @@ savePostButton.addEventListener("click", () => {
         data.likes.length,
         true,
         data._id,
-        handleDeleteCard,
-        handleLikeCard
+        handleDeleteCard
       );
       const newCardElement = newCard.generateCard();
       cardList.addNewItem(newCardElement);
-      popupWithFormPost.close();
     })
     .catch((error) => {
       console.error("Error adding new post:", error);
+    })
+    .finally(() => {
+      saveButton.textContent = "Salvar";
+      popupWithFormPost.close();
     });
 });

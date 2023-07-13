@@ -17,7 +17,6 @@ export default class Card {
     isCardOwner,
     imageId,
     handleDeleteCard,
-    handleLikeCard
   ) {
     this._image = image;
     this._caption = caption;
@@ -26,7 +25,6 @@ export default class Card {
     this._isCardOwner = isCardOwner;
     this._imageId = imageId;
     this._handleDeleteCard = handleDeleteCard;
-    this._handleLikeCard = handleLikeCard;
   }
 
   // probably I will have to switch an id for a class template
@@ -94,14 +92,17 @@ export default class Card {
       // Remove a curtida
       api
         .removeLike("cards/likes/", this._element.dataset.cardId)
+        .then((res) => res.json())
         .then((data) => {
           // Atualiza o contador de curtidas
+          console.log(evt.target)
           this._element.querySelector(
             ".post__card-content-like_count"
           ).textContent = data.likes.length;
 
           // Remove a classe de ativo do botão de curtir
-          // likeButton.classList.remove("post__card-content-like_active");
+          likeButton.classList.remove("post__card-content-like_active");
+
         })
         .catch((error) => {
           console.error("Erro ao remover curtida:", error);
@@ -109,7 +110,8 @@ export default class Card {
     } else {
       // Adiciona a curtida
       api
-        .addLike("cards/likes/", this._element.dataset.cardId, user).then((res) => res.json())
+        .addLike("cards/likes/", this._element.dataset.cardId, user)
+        .then((res) => res.json())
         .then((data) => {
           console.log(data)
           // Atualiza o contador de curtidas
@@ -118,7 +120,7 @@ export default class Card {
           ).textContent = data.likes.length;
 
           // Adiciona a classe de ativo ao botão de curtir
-          // likeButton.classList.add("post__card-content-like_active");
+          likeButton.classList.add("post__card-content-like_active");
         })
         .catch((error) => {
           console.error("Erro ao adicionar curtida:", error);

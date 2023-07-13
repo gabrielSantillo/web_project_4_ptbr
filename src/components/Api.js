@@ -107,12 +107,6 @@ export default class Api {
         "Content-Type": "application/json",
       },
     })
-      .then((res) => {
-        if (res.ok) {
-          return res.json();
-        }
-        return Promise.reject(`Error: ${res.status}`);
-      })
       .catch((error) => {
         console.error("Error removing like:", error);
       });
