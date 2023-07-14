@@ -232,7 +232,8 @@ savePostButton.addEventListener("click", () => {
         data.likes.length,
         true,
         data._id,
-        handleDeleteCard
+        handleDeleteCard,
+        data.likes
       );
       const newCardElement = newCard.generateCard();
       cardList.addNewItem(newCardElement);
