@@ -6,7 +6,7 @@ import {
   popupDeletePostButton,
 } from "../utils/utils.js";
 
-import {api, user} from "../index.js";
+import { api, user } from "../index.js";
 
 export default class Card {
   constructor(
@@ -16,7 +16,7 @@ export default class Card {
     likes,
     isCardOwner,
     imageId,
-    handleDeleteCard,
+    handleDeleteCard
   ) {
     this._image = image;
     this._caption = caption;
@@ -75,18 +75,11 @@ export default class Card {
   }
 
   _handleLikeButton(evt) {
-    // if (
-    //   evt.target.src !==
-    //   "http://127.0.0.1:5500/images/post/post-like-filled.png"
-    // ) {
-    //   evt.target.setAttribute("src", "<%=require('./images/post/post-like-filled.png')%>");
-    // } else {
-    //   evt.target.setAttribute("src", "<%=require('./images/post/post-like.png')%>");
-    // }
-
-    // this._handleLikeCard(this._element.dataset.cardId);
-
     const likeButton = this._element.querySelector(".post__card-content-like");
+
+    const likeButtonFilled = this._element.querySelector(
+      ".post__card-content-like_filled"
+    );
 
     if (likeButton.classList.contains("post__card-content-like_active")) {
       // Remove a curtida
@@ -95,7 +88,7 @@ export default class Card {
         .then((res) => res.json())
         .then((data) => {
           // Atualiza o contador de curtidas
-          console.log(evt.target)
+          console.log(evt.target);
           this._element.querySelector(
             ".post__card-content-like_count"
           ).textContent = data.likes.length;
@@ -103,6 +96,8 @@ export default class Card {
           // Remove a classe de ativo do botão de curtir
           likeButton.classList.remove("post__card-content-like_active");
 
+          likeButtonFilled.style.display = "none";
+          likeButton.style.display = "block";
         })
         .catch((error) => {
           console.error("Erro ao remover curtida:", error);
@@ -113,7 +108,7 @@ export default class Card {
         .addLike("cards/likes/", this._element.dataset.cardId, user)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data)
+          console.log(data);
           // Atualiza o contador de curtidas
           this._element.querySelector(
             ".post__card-content-like_count"
@@ -121,6 +116,9 @@ export default class Card {
 
           // Adiciona a classe de ativo ao botão de curtir
           likeButton.classList.add("post__card-content-like_active");
+
+          likeButton.style.display = "none";
+          likeButtonFilled.style.display = "block";
         })
         .catch((error) => {
           console.error("Erro ao adicionar curtida:", error);
@@ -149,6 +147,12 @@ export default class Card {
 
     this._element
       .querySelector(".post__card-content-like")
+      .addEventListener("click", (evt) => {
+        this._handleLikeButton(evt);
+      });
+
+      this._element
+      .querySelector(".post__card-content-like_filled")
       .addEventListener("click", (evt) => {
         this._handleLikeButton(evt);
       });
