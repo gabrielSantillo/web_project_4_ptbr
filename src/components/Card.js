@@ -16,7 +16,8 @@ export default class Card {
     likes,
     isCardOwner,
     imageId,
-    handleDeleteCard
+    handleDeleteCard,
+    cardLikes
   ) {
     this._image = image;
     this._caption = caption;
@@ -25,6 +26,7 @@ export default class Card {
     this._isCardOwner = isCardOwner;
     this._imageId = imageId;
     this._handleDeleteCard = handleDeleteCard;
+    this._cardLikes = cardLikes
   }
 
   // probably I will have to switch an id for a class template
@@ -54,6 +56,21 @@ export default class Card {
     this._element.querySelector(".post__card-content-like_count").textContent =
       this._likes;
     this._isCardOwner = isCardOwner;
+
+    const userLiked = this._cardLikes.some((like) => like._id === user._id);
+
+    const likeButton = this._element.querySelector(".post__card-content-like");
+    const likeButtonFilled = this._element.querySelector(
+      ".post__card-content-like_filled"
+    );
+
+    if (userLiked) {
+      likeButton.style.display = "none";
+      likeButtonFilled.style.display = "block";
+    } else {
+      likeButton.style.display = "block";
+      likeButtonFilled.style.display = "none";
+    }
 
     return this._element;
   }
@@ -151,7 +168,7 @@ export default class Card {
         this._handleLikeButton(evt);
       });
 
-      this._element
+    this._element
       .querySelector(".post__card-content-like_filled")
       .addEventListener("click", (evt) => {
         this._handleLikeButton(evt);

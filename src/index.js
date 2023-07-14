@@ -87,7 +87,8 @@ api
             image.likes.length,
             isCardOwner,
             image._id,
-            handleDeleteCard
+            handleDeleteCard,
+            image.likes
           );
           const cardElement = card.generateCard();
           cardList.setItem(cardElement);
