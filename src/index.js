@@ -13,8 +13,6 @@ import {
   listOfClasses,
   popupSaveButton,
   savePostButton,
-  cardCountLikes,
-  cardLike,
   userProfileImage,
   saveUserImageProfileButton,
   popupDeletePostIcon,
@@ -58,7 +56,7 @@ api
   });
 
 closeButtonPopupDeletePost.addEventListener("click", () => {
-  popupDeletePost.classList.remove("popup-opened");
+  popupDeletePostIcon.classList.remove("popup-opened");
 });
 
 function handleDeleteCard(cardId) {
