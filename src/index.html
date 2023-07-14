@@ -33,12 +33,12 @@
           <div>
             <div class="profile__container">
               <img
-                src=""
+                src="."
                 alt="Imagem da foto do perfil"
                 class="profile__container-image"
                 id="profile-image"
               />
-              <button class="profile__container-edit-button" id="edit-profile">
+              <button class="profile__container-edit-button" id="edit-profile-image">
                 <img
                   src="<%=require('./images/profile/profile-edit-pencil.png')%>"
                   alt="Imagem de um lápis para representar o botão de editar"
@@ -195,7 +195,7 @@
           </div>
         </section>
 
-        <section class="popup close-popup popup-edit-profile-image" id="popup">
+        <section class="popup close-popup popup-edit-profile-image" >
           <div class="popup__container-img-profile edit-img-profile-container">
             <form
               id="form-edit-profile-image"
@@ -210,7 +210,6 @@
                   src="<%=require('./images/popup/popup-close.png')%>"
                   alt=""
                   class="popup__container-form-heading-close close-icon"
-                  id="close-button"
                 />
               </div>
 

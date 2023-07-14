@@ -1,13 +1,10 @@
 .post__card-content-like_filled {
     margin-right: 15px;
     cursor: pointer;
+    display: none;
 }
 
 .post__card-content-like_filled:hover {
     transition: .4s;
     opacity: 50%;
-}
-
-.post__card-content-like_filled {
-    display: none;
 }
