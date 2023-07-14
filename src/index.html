@@ -31,12 +31,22 @@
       <main class="page">
         <section class="profile">
           <div>
-            <img
-              src=""
-              alt="Imagem da foto do perfil"
-              class="profile__image"
-              id="profile-image"
-            />
+            <div class="profile__container">
+              <img
+                src=""
+                alt="Imagem da foto do perfil"
+                class="profile__container-image"
+                id="profile-image"
+              />
+              <button class="profile__container-edit-button" id="edit-profile">
+                <img
+                  src="<%=require('./images/profile/profile-edit-pencil.png')%>"
+                  alt="Imagem de um lápis para representar o botão de editar"
+                  class="profile__container-edit-button-icon"
+                />
+              </button>
+            </div>
+
             <div class="profile__info">
               <div class="profile__info-content">
                 <h1 class="profile__info-content-name" id="profile-name"></h1>
@@ -204,7 +214,9 @@
                 />
               </div>
 
-              <fieldset class="popup__container-form-texts-img-profile form__set">
+              <fieldset
+                class="popup__container-form-texts-img-profile form__set"
+              >
                 <input
                   type="url"
                   class="popup__container-form-texts-input form__input input"
@@ -229,8 +241,10 @@
         </section>
 
         <section class="popup delete close-popup" id="delete-post">
-          <div class="popup__container-img-profile edit-container"
-          id="delete-card-container">
+          <div
+            class="popup__container-img-profile edit-container"
+            id="delete-card-container"
+          >
             <form
               id="form-edit-profile-image"
               class="popup__container-form form"
@@ -248,8 +262,9 @@
                 />
               </div>
 
-              <fieldset class="popup__container-form-texts-img-profile form__set">
-
+              <fieldset
+                class="popup__container-form-texts-img-profile form__set"
+              >
                 <button
                   class="popup__container-form-button form__submit"
                   id="popup-delete-post-button"

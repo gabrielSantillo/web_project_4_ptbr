@@ -1,0 +1,14 @@
+.profile__container-image {
+    border-radius: 50%;
+    width: 168.75px;
+    height: 168.75px;
+    cursor: pointer;
+    justify-self: center;
+    align-self: center;
+    object-fit: cover;
+}
+
+.profile__container-image:hover {
+    transition: .4s;
+    filter: brightness(70%);
+  }

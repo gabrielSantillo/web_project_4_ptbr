@@ -16,7 +16,10 @@
 
 /* PROFILE */
 @import url('../blocks/profile/profile.css');
-@import url('../blocks/profile/__image/profile__image.css');
+@import url('../blocks/profile/__container/profile__container.css');
+@import url('../blocks/profile/__container/-image/profile__container-image.css');
+@import url('../blocks/profile/__container/-edit-button/profile__container-edit-button.css');
+@import url('../blocks/profile/__container/-edit-button/-icon/profile__container-edit-button-icon.css');
 @import url('../blocks/profile/__info/profile__info.css');
 @import url('../blocks/profile/__add/profile__add.css');
 @import url('../blocks/profile/__info/-content/profile__info-content.css');
