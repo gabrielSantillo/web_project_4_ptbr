@@ -18,7 +18,11 @@ export const popupDeletePostIcon = document.querySelector("#delete-post");
 export const closeButtonPopupDeletePost = document.querySelector("#close-popup-delete-button");
 export const popupDeletePostButton = document.querySelector("#popup-delete-post-button");
 
-export const userInfo = "";
+export const baseApi = {
+  url: "https://around.nomoreparties.co/v1/web_ptbr_05/",
+  authorization: "1c87feaf-7ea2-4dd9-b0cc-b4816af3e289",
+  contentType: "application/json"
+}
 
 export const listOfClasses = {
   fieldsetList: ".form__set",

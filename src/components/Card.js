@@ -6,8 +6,6 @@ import {
   popupDeletePostButton,
 } from "../utils/utils.js";
 
-import { api, user } from "../index.js";
-
 export default class Card {
   constructor(
     image,
@@ -17,7 +15,9 @@ export default class Card {
     isCardOwner,
     imageId,
     handleDeleteCard,
-    cardLikes
+    cardLikes,
+    userInfo, 
+    api
   ) {
     this._image = image;
     this._caption = caption;
@@ -26,7 +26,9 @@ export default class Card {
     this._isCardOwner = isCardOwner;
     this._imageId = imageId;
     this._handleDeleteCard = handleDeleteCard;
-    this._cardLikes = cardLikes
+    this._cardLikes = cardLikes;
+    this._userInfo = userInfo;
+    this._api = api
   }
 
   // probably I will have to switch an id for a class template
@@ -57,7 +59,7 @@ export default class Card {
       this._likes;
     this._isCardOwner = isCardOwner;
 
-    const userLiked = this._cardLikes.some((like) => like._id === user._id);
+    const userLiked = this._cardLikes.some((like) => like._id === this._userInfo._id);
 
     const likeButton = this._element.querySelector(".post__card-content-like");
     const likeButtonFilled = this._element.querySelector(
@@ -100,12 +102,11 @@ export default class Card {
 
     if (likeButton.classList.contains("post__card-content-like_active")) {
       // Remove a curtida
-      api
+      this._api
         .removeLike("cards/likes/", this._element.dataset.cardId)
         .then((res) => res.json())
         .then((data) => {
           // Atualiza o contador de curtidas
-          console.log(evt.target);
           this._element.querySelector(
             ".post__card-content-like_count"
           ).textContent = data.likes.length;
@@ -121,11 +122,10 @@ export default class Card {
         });
     } else {
       // Adiciona a curtida
-      api
-        .addLike("cards/likes/", this._element.dataset.cardId, user)
+      this._api
+        .addLike("cards/likes/", this._element.dataset.cardId, this._userInfo)
         .then((res) => res.json())
         .then((data) => {
-          console.log(data);
           // Atualiza o contador de curtidas
           this._element.querySelector(
             ".post__card-content-like_count"

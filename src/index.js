@@ -3,8 +3,8 @@ import FormValidator from "./components/FormValidator.js";
 import Section from "./components/Section.js";
 import PopupWithImage from "./components/PopupWithImage.js";
 import PopupWithForm from "./components/PopupWithForm.js";
-import PopupEditProfileImage from "./components/PopupEditProfileIamge.js";
-import PopupConfirmDeleteCard from "./components/PopupConfirmDeleteCard.js";
+import PopupEditProfileImage from "./components/PopupEditProfileImage.js";
+import PopupWithConfirmation from "./components/PopupWithConfirmation.js";
 import UserInfo from "./components/UserInfo.js";
 import {
   cardElement,
@@ -17,6 +17,7 @@ import {
   saveUserImageProfileButton,
   popupDeletePostIcon,
   closeButtonPopupDeletePost,
+  baseApi
 } from "./utils/utils.js";
 
 import Api from "./components/Api.js";
@@ -24,10 +25,10 @@ import Api from "./components/Api.js";
 import "./pages/index.css";
 
 export const api = new Api({
-  baseUrl: "https://around.nomoreparties.co/v1/web_ptbr_05/",
+  baseUrl: baseApi.url,
   headers: {
-    authorization: "1c87feaf-7ea2-4dd9-b0cc-b4816af3e289",
-    "Content-Type": "application/json",
+    authorization: baseApi.authorization,
+    "Content-Type": baseApi.contentType,
   },
 });
 
@@ -39,7 +40,7 @@ const userInfo = new UserInfo({
   imageSelector: "#profile-image",
 });
 
-export let user;
+
 api
   .getUserInfo("users/me")
   .then((data) => {
@@ -47,9 +48,8 @@ api
       name: data.name,
       job: data.about,
       image: data.avatar,
+      id: data._id
     });
-    user = data;
-    console.log(user);
   })
   .catch((error) => {
     console.error("Error getting the user info:", error);
@@ -60,24 +60,23 @@ closeButtonPopupDeletePost.addEventListener("click", () => {
 });
 
 function handleDeleteCard(cardId) {
-  const popupConfirmDeleteCard = new PopupConfirmDeleteCard(
+  const popupWithConfirmation = new PopupWithConfirmation(
     "#delete-card-container",
     api.deleteCard("cards", cardId)
   );
-  popupConfirmDeleteCard.setEventListeners();
-  popupConfirmDeleteCard.open();
+  popupWithConfirmation.setEventListeners();
+  popupWithConfirmation.open();
 }
 
 let cardList;
 api
   .getInitialCards("cards")
   .then((data) => {
-    console.log(data);
     cardList = new Section(
       {
         items: data,
         renderer: (image) => {
-          const isCardOwner = image.owner._id === user._id;
+          const isCardOwner = image.owner._id === userInfo._id;
           const card = new Card(
             image.link,
             image.name,
@@ -86,7 +85,9 @@ api
             isCardOwner,
             image._id,
             handleDeleteCard,
-            image.likes
+            image.likes,
+            userInfo,
+            api
           );
           const cardElement = card.generateCard();
           cardList.setItem(cardElement);
@@ -118,7 +119,6 @@ popupWithFormPost.setEventListeners();
 
 addPost.addEventListener("click", () => {
   popupWithFormPost.open();
-  console.log(addPost);
 });
 
 const popupWithFormEdit = new PopupWithForm(
@@ -167,6 +167,7 @@ saveUserImageProfileButton.addEventListener("click", () => {
         name: data.name,
         job: data.about,
         image: data.avatar,
+        id: data._id
       });
     })
     .catch((error) => {
@@ -193,11 +194,11 @@ function handleSaveButton(evt) {
     .updateUserInfo("users/me", name.value, about.value)
     .then((res) => res.json())
     .then((data) => {
-      console.log("Update ", data);
       userInfo.setUserInfo({
         name: data.name,
         job: data.about,
         image: data.avatar,
+        id: data._id
       });
     })
     .catch((error) => {
@@ -222,7 +223,6 @@ savePostButton.addEventListener("click", () => {
       return res.json();
     })
     .then((data) => {
-      console.log(data);
       const newCard = new Card(
         data.link,
         data.name,
@@ -231,7 +231,9 @@ savePostButton.addEventListener("click", () => {
         true,
         data._id,
         handleDeleteCard,
-        data.likes
+        data.likes,
+        userInfo,
+        api
       );
       const newCardElement = newCard.generateCard();
       cardList.addNewItem(newCardElement);
