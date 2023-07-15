@@ -174,6 +174,8 @@ saveUserImageProfileButton.addEventListener("click", () => {
     })
     .finally(() => {
       saveButton.textContent = "Salvar";
+      saveButton.setAttribute("disabled", true);
+      saveButton.classList.add("button_inactive");
       popupEditProfileIamge.close();
     });
 });
@@ -204,6 +206,8 @@ function handleSaveButton(evt) {
     })
     .finally(() => {
       saveButton.textContent = "Salvar";
+      saveButton.setAttribute("disabled", true);
+      saveButton.classList.add("button_inactive");
       popupWithFormEdit.close();
     });
 }
@@ -238,6 +242,8 @@ savePostButton.addEventListener("click", () => {
     })
     .finally(() => {
       saveButton.textContent = "Salvar";
+      saveButton.setAttribute("disabled", true);
+      saveButton.classList.add("button_inactive");
       popupWithFormPost.close();
     });
 });
