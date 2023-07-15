@@ -161,7 +161,6 @@ saveUserImageProfileButton.addEventListener("click", () => {
       "users/me/avatar",
       document.querySelector("#profile-image-input").value
     )
-    .then((res) => res.json())
     .then((data) => {
       userInfo.setUserInfo({
         name: data.name,
@@ -192,7 +191,6 @@ function handleSaveButton(evt) {
 
   api
     .updateUserInfo("users/me", name.value, about.value)
-    .then((res) => res.json())
     .then((data) => {
       userInfo.setUserInfo({
         name: data.name,
@@ -219,9 +217,6 @@ savePostButton.addEventListener("click", () => {
 
   api
     .addNewPost("cards", title, url)
-    .then((res) => {
-      return res.json();
-    })
     .then((data) => {
       const newCard = new Card(
         data.link,

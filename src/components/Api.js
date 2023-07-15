@@ -31,7 +31,13 @@ export default class Api {
       body: JSON.stringify({
         name: postName,
         link: postUrl,
-      }),
+      })
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // se o servidor retornar um erro, rejeite a promessa
+      return Promise.reject(`Error: ${res.status}`);
     });
   }
 
@@ -60,6 +66,12 @@ export default class Api {
         name: userName,
         about: userAbout,
       }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // se o servidor retornar um erro, rejeite a promessa
+      return Promise.reject(`Error: ${res.status}`);
     });
   }
 
@@ -70,6 +82,12 @@ export default class Api {
         authorization: "1c87feaf-7ea2-4dd9-b0cc-b4816af3e289",
         "Content-Type": "application/json",
       },
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // se o servidor retornar um erro, rejeite a promessa
+      return Promise.reject(`Error: ${res.status}`);
     });
   }
 
@@ -83,6 +101,12 @@ export default class Api {
       body: JSON.stringify({
         avatar: imageUrl,
       }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // se o servidor retornar um erro, rejeite a promessa
+      return Promise.reject(`Error: ${res.status}`);
     });
   }
 
@@ -96,6 +120,12 @@ export default class Api {
       body: JSON.stringify({
         likes: user,
       }),
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // se o servidor retornar um erro, rejeite a promessa
+      return Promise.reject(`Error: ${res.status}`);
     });
   }
 
@@ -106,9 +136,12 @@ export default class Api {
         authorization: this._headers.authorization,
         "Content-Type": "application/json",
       },
-    })
-      .catch((error) => {
-        console.error("Error removing like:", error);
-      });
+    }).then((res) => {
+      if (res.ok) {
+        return res.json();
+      }
+      // se o servidor retornar um erro, rejeite a promessa
+      return Promise.reject(`Error: ${res.status}`);
+    });
   }
 }

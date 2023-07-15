@@ -104,7 +104,6 @@ export default class Card {
       // Remove a curtida
       this._api
         .removeLike("cards/likes/", this._element.dataset.cardId)
-        .then((res) => res.json())
         .then((data) => {
           // Atualiza o contador de curtidas
           this._element.querySelector(
@@ -124,7 +123,6 @@ export default class Card {
       // Adiciona a curtida
       this._api
         .addLike("cards/likes/", this._element.dataset.cardId, this._userInfo)
-        .then((res) => res.json())
         .then((data) => {
           // Atualiza o contador de curtidas
           this._element.querySelector(
