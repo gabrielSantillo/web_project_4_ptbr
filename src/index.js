@@ -17,7 +17,8 @@ import {
   saveUserImageProfileButton,
   popupDeletePostIcon,
   closeButtonPopupDeletePost,
-  baseApi
+  baseApi,
+  section
 } from "./utils/utils.js";
 
 import Api from "./components/Api.js";
@@ -68,11 +69,10 @@ function handleDeleteCard(cardId) {
   popupWithConfirmation.open();
 }
 
-let cardList;
 api
   .getInitialCards("cards")
   .then((data) => {
-    cardList = new Section(
+    section.cardList = new Section(
       {
         items: data,
         renderer: (image) => {
@@ -90,12 +90,12 @@ api
             api
           );
           const cardElement = card.generateCard();
-          cardList.setItem(cardElement);
+          section.cardList.setItem(cardElement);
         },
       },
       cardElement
     );
-    cardList.renderItems();
+    section.cardList.renderItems();
   })
   .catch((error) => {
     console.error("Error getting the cards info:", error);
@@ -235,7 +235,7 @@ savePostButton.addEventListener("click", () => {
         api
       );
       const newCardElement = newCard.generateCard();
-      cardList.addNewItem(newCardElement);
+      section.cardList.addNewItem(newCardElement);
     })
     .catch((error) => {
       console.error("Error adding new post:", error);

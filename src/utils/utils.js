@@ -17,6 +17,7 @@ export const saveUserImageProfileButton = document.querySelector("#save-profile-
 export const popupDeletePostIcon = document.querySelector("#delete-post");
 export const closeButtonPopupDeletePost = document.querySelector("#close-popup-delete-button");
 export const popupDeletePostButton = document.querySelector("#popup-delete-post-button");
+export const section = {};
 
 export const baseApi = {
   url: "https://around.nomoreparties.co/v1/web_ptbr_05/",
